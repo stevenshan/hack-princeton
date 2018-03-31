@@ -2,7 +2,7 @@
   include("scripts/organization_session.php");
   if (!$success)
   {
-    header("location:/");
+    header("location:/login_organization.php");
   }
   include("scripts/create_event.php");
   if ($success)
@@ -54,6 +54,11 @@
       <div class="form-label-group">
         <input type="date" name="date" id="inputDate" class="form-control" placeholder="Password" required>
         <label for="inputDate">Date</label>
+      </div>
+
+      <div class="form-label-group">
+        <input type="date" name="date" id="inputDate" class="form-control" placeholder="Password" required>
+        <label for="inputLocation">Date</label>
       </div>
 
       <button class="btn btn-lg btn-primary btn-block" type="submit">Create Event</button>
