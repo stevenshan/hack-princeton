@@ -163,31 +163,72 @@ function initMap() {
 
   geocoder = new google.maps.Geocoder();
 
-  var iconBase = '';
-        var icons = {
-          ANI: {
-            icon: iconBase + './icons/015-animals.png'
-          },
-          ENV: {
-            icon: iconBase + './icons/013-plant.png'
-          },
-          EDU: {
-            icon: iconBase + './icons/007-books.png'
-          },
-          CPU: {
-            icon: iconBase + './icons/009-imac.png'
-          },
-          MED: {
-            icon: iconBase + './icons/012-medical.png'
-          },
-          HOM: {
-            icon: iconBase + './icons/006-real-estate.png'
-          },
-          CHD: {
-            icon: iconBase + './icons/003-teddy-bear.png'
-          }
-        };
-
+  var icons = {
+    ANI: {
+      icon: {
+        url: './icons/015-animals.png',
+        size: new google.maps.Size(71,71),
+        origin: new google.maps.Point(0,0),
+        anchor: new google.maps.Point(17,34),
+        scaledSize: new google.maps.Size(40,40)
+      }
+    },
+    ENV: {
+      icon: {
+        url: './icons/013-plant.png',
+        size: new google.maps.Size(71,71),
+        origin: new google.maps.Point(0,0),
+        anchor: new google.maps.Point(17,34),
+        scaledSize: new google.maps.Size(40,40)
+      }
+    },
+    EDU: {
+      icon: {
+        url: './icons/007-books.png',
+        size: new google.maps.Size(71,71),
+        origin: new google.maps.Point(0,0),
+        anchor: new google.maps.Point(17,34),
+        scaledSize: new google.maps.Size(40,40)
+      }
+    },
+    CPU: {
+      icon: {
+        url: './icons/009-imac.png',
+        size: new google.maps.Size(71,71),
+        origin: new google.maps.Point(0,0),
+        anchor: new google.maps.Point(17,34),
+        scaledSize: new google.maps.Size(40,40)
+      }
+    },
+    MED: {
+      icon: {
+        url: './icons/012-medical.png',
+        size: new google.maps.Size(71,71),
+        origin: new google.maps.Point(0,0),
+        anchor: new google.maps.Point(17,34),
+        scaledSize: new google.maps.Size(40,40)
+      }
+    },
+    HOM: {
+      icon: {
+        url: './icons/006-real-estate.png',
+        size: new google.maps.Size(71,71),
+        origin: new google.maps.Point(0,0),
+        anchor: new google.maps.Point(17,34),
+        scaledSize: new google.maps.Size(40,40)
+      }
+    },
+    CHD: {
+      icon: {
+        url: './icons/003-teddy-bear.png',
+        size: new google.maps.Size(71,71),
+        origin: new google.maps.Point(0,0),
+        anchor: new google.maps.Point(17,34),
+        scaledSize: new google.maps.Size(40,40)
+      }  
+    }
+  };
+  
   // Create the search box and link it to the UI element.
   var input = document.getElementById('pac-input');
   var searchBox = new google.maps.places.SearchBox(input);
