@@ -1,5 +1,3 @@
-var event_markers = {}
-
 function initMap() {
 
   var princeton = {lat: 40.3474393, lng: -74.657609};
