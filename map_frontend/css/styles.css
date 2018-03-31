@@ -39,9 +39,6 @@ html, body {
   text-align: center;
 }
 
-#infobox {
-}
-
 #welcome {
   padding: 10px;
 }
@@ -69,4 +66,32 @@ html, body {
   margin-top: 3px;
   margin-bottom: 0px;
   padding: 0px;
+}
+
+.event-title {
+  display: inline-block;
+  width: 100%;
+  margin-top: -20px;
+  margin-bottom: 0px;
+  line-height: 1.0;
+  font-size: 32px;
+  text-align: center;
+  text-overflow: ellipsis;
+}
+
+.event-info {
+  display: inline-block;
+  width: 100%;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 10px 15px;
+  line-height: 1.0;
+  font-size: 18px;
+  text-align: left;
+  text-overflow: clip;
+  overflow: hidden;
+}
+
+#event-divider {
+  visibility: hidden;
 }

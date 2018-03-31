@@ -157,7 +157,7 @@ function initMap() {
       }
     ],
   });
-  
+
   geocoder = new google.maps.Geocoder();
 
   // Create the search box and link it to the UI element.
@@ -274,12 +274,18 @@ function updateSidebar(resp_temp) {
   let raw_data = JSON.parse(resp_temp["data"]);
   let lat = parseFloat(raw_data["lat"]);
   let lng = parseFloat(raw_data["long"]);
-  let time = raw_data["time"];
+  let start = raw_data["start"];
+  let end = raw_data["end"];
+  let desc = raw_data["description"];
 
   $("#event-title").html(name);
   $("#event-org").html(org_id);
   $("#event-date").html(date);
-  $("#event-time").html(time);
+  $("#event-start").html(start);
+  $("#event-end").html(end);
+  $("#event-description").html(desc);
+  $("#event-divider").css("visibility", "visible")
+  $("#event-table").css("visibility", "visible")
   codeLatLng(lat,lng);
 }
 
@@ -301,6 +307,3 @@ function codeLatLng(lat, lng) {
     }
   });
 }
-
-
-
