@@ -163,6 +163,31 @@ function initMap() {
 
   geocoder = new google.maps.Geocoder();
 
+  var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+        var icons = {
+          ANI: {
+            icon: iconBase + '../icons/015-animals.png'
+          },
+          ENV: {
+            icon: iconBase + '../icons/013-plant.png'
+          },
+          EDU: {
+            icon: iconBase + '../icons/007-books.png'
+          },
+          CPU: {
+            icon: iconBase + '../icons/009-imac.png'
+          },
+          MED: {
+            icon: iconBase + '../icons/012-medical.png'
+          },
+          HOM: {
+            icon: iconBase + '../icons/006-real-estate.png'
+          },
+          CHD: {
+            icon: iconBase + '../icons/003-teddy-bear.png'
+          }
+        };
+
   // Create the search box and link it to the UI element.
   var input = document.getElementById('pac-input');
   var searchBox = new google.maps.places.SearchBox(input);
@@ -205,13 +230,13 @@ function initMap() {
       };
 
       // Create a marker for each place.
-      markers.push(new google.maps.Marker({
+      /* markers.push(new google.maps.Marker({
         map: map,
         icon: icon,
         title: place.name,
         position: place.geometry.location
       }));
-
+      */
       if (place.geometry.viewport) {
         // Only geocodes have viewport.
         bounds.union(place.geometry.viewport);
@@ -252,6 +277,7 @@ function initMap() {
 
       var event_mark = new google.maps.Marker({
         position: {lat: parseFloat(data_temp["lat"]), lng: parseFloat(data_temp["long"])},
+        icon: icons[data_temp["category"]].icon,
         map: map,
         title: data_temp["name"]
       });
@@ -273,6 +299,16 @@ function updateSidebar(resp_temp) {
 
   let name = resp_temp["name"];
   let org_id = resp_temp["organization"];
+  var org_name;
+  $.ajax({
+    async: false,
+    url: "http://10.25.53.76/scripts/get_org_data.php?id=" + org_id,
+    success: function(response) {
+      org_info = JSON.parse(response);
+      org_name = org_info["name"];
+    }
+  });
+
   let date = resp_temp["date"];
   let attendees = resp_temp["users"];
 
@@ -284,7 +320,7 @@ function updateSidebar(resp_temp) {
   let desc = raw_data["description"];
 
   $("#event-title").html(name);
-  $("#event-org").html(org_id);
+  $("#event-org").html(org_name);
   $("#event-date").html(date);
   $("#event-start").html(start);
   $("#event-end").html(end);
@@ -302,7 +338,6 @@ function codeLatLng(lat, lng) {
   }, function (results, status) {
     if (status === google.maps.GeocoderStatus.OK) {
       if (results[1]) {
-        //console.log(results[1].formatted_address);
         $("#event-loc").html(results[1].formatted_address);
       } else {
         return "Exact address not found";
@@ -326,6 +361,7 @@ function hideBackground() {
   sidebarDisplay = false;
   $("nav").css("box-shadow", "none");
   $("nav").css("background-color", "#00000000");
+  $("nav").css("overflow-y", "hidden");
   $("#event-table").css("visibility", "hidden");
   $("#infobox").css("visibility", "hidden");
 }
@@ -334,6 +370,7 @@ function showBackground() {
   sidebarDisplay = true;
   $("nav").css("background-color", "#ffffff");
   $("nav").css("box-shadow", "-5px 0px 15px #aaa");
+  $("nav").css("overflow-y", "scroll");
   $("#infobox").css("visibility", "visible");
   $("#event-table").css("visibility", "visible");
 }
