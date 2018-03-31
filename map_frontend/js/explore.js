@@ -163,28 +163,28 @@ function initMap() {
 
   geocoder = new google.maps.Geocoder();
 
-  var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+  var iconBase = '';
         var icons = {
           ANI: {
-            icon: iconBase + '../icons/015-animals.png'
+            icon: iconBase + './icons/015-animals.png'
           },
           ENV: {
-            icon: iconBase + '../icons/013-plant.png'
+            icon: iconBase + './icons/013-plant.png'
           },
           EDU: {
-            icon: iconBase + '../icons/007-books.png'
+            icon: iconBase + './icons/007-books.png'
           },
           CPU: {
-            icon: iconBase + '../icons/009-imac.png'
+            icon: iconBase + './icons/009-imac.png'
           },
           MED: {
-            icon: iconBase + '../icons/012-medical.png'
+            icon: iconBase + './icons/012-medical.png'
           },
           HOM: {
-            icon: iconBase + '../icons/006-real-estate.png'
+            icon: iconBase + './icons/006-real-estate.png'
           },
           CHD: {
-            icon: iconBase + '../icons/003-teddy-bear.png'
+            icon: iconBase + './icons/003-teddy-bear.png'
           }
         };
 
@@ -275,9 +275,11 @@ function initMap() {
         }
       });
 
+      var cat = data_temp["category"];
+
       var event_mark = new google.maps.Marker({
         position: {lat: parseFloat(data_temp["lat"]), lng: parseFloat(data_temp["long"])},
-        icon: icons[data_temp["category"]].icon,
+        icon: icons[cat].icon,
         map: map,
         title: data_temp["name"]
       });
