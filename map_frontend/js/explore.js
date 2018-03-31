@@ -1,3 +1,5 @@
+var event_markers = {}
+
 function initMap() {
 
   var princeton = {lat: 40.3474393, lng: -74.657609};
@@ -216,4 +218,52 @@ function initMap() {
     });
     map.fitBounds(bounds);
   });
+
+  var event_ids;
+
+  $.ajax({
+    async: false,
+    url: "http://10.25.53.76/scripts/get_all_events.php",
+    success: function(data) {
+      event_ids = data.split(",");
+    },
+  });
+
+  console.log(event_ids);
+
+  var event_markers = {};
+
+  for (i = 0; i < event_ids.length; i++) {
+    var resp_temp;
+    var data_temp;
+    $.ajax({
+      async: false,
+      url: "http://10.25.53.76/scripts/get_event_data.php?id=" + event_ids[i],
+      success: function(resp) {
+        resp_temp = JSON.parse(resp);
+        console.log(resp_temp["data"]);
+        data_temp = JSON.parse(resp_temp["data"]);
+      }
+    });
+
+    var event_mark = new google.maps.Marker({
+      position: {lat: parseFloat(data_temp["lat"]), lng: parseFloat(data_temp["long"])},
+      map: map,
+      title: data_temp["name"]
+    });
+
+    event_markers[event_mark] = [event_mark, resp_temp, data_temp];
+
+    event_mark.addListener('click', function() {
+      map.setZoom(8);
+      map.setCenter(event_mark.getPosition());
+      updateSidebar(event_mark);
+    });
+
+  }
+
+}
+
+function updateSidebar(event_mark) {
+  console.log(event_markers[event_mark]);
 }
