@@ -11,10 +11,11 @@
 	$success=false;
 	if($_SERVER["REQUEST_METHOD"] == "POST") {
 	    $orgname=mysqli_real_escape_string($db,$_POST['name']);
+	    $orgemail=mysqli_real_escape_string($db,$_POST['email']);
 	    $orgpassword=mysqli_real_escape_string($db,$_POST['password']);
 
-		$sql="INSERT INTO `Organizations`(`name`, `password`) " .
-			 "VALUES ('$orgname', '$orgpassword')";
+		$sql="INSERT INTO `Organizations`(`name`, `email`, `password`) " .
+			 "VALUES ('$orgname', '$orgemail', '$orgpassword')";
 	    $result=mysqli_query($db,$sql);
 
 	    if ($result === false)

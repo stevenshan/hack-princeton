@@ -35,6 +35,8 @@
         <!--<h1 class="h3 mb-3 font-weight-normal">Login</h1>-->
       </div>
 
+      <div style='text-align:center'><h4> VOLUNTEER LOG IN </h4></div>
+      <p> </p>
       <?php
         if ($error != "")
         {
@@ -45,7 +47,6 @@
       <?php
         }
       ?>
-
       <div class="form-label-group">
         <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
         <label for="inputEmail">Email address</label>
@@ -57,7 +58,9 @@
       </div>
 
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign In</button>
+      <p> </p>
+      <p style='text-align:center'>Not signed up yet? &nbsp; <a href="register.php">Register Here!</a></p>
       <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2018</p>
-    </form>
-  </body>
+ </form>
+   </body>
 </html>
