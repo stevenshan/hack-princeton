@@ -43,7 +43,7 @@
 		    	}
 		    	else
 		    	{
-		    		$new_data = $new_data . "," . $ordid;
+		    		$new_data = $new_data . "," . $orgid;
 		    	}
 		    	$sql = "UPDATE `Users` SET `organizations`='$new_data' WHERE id='$orgowner'";
 		    	mysqli_query($db, $sql); 
