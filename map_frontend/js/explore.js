@@ -157,6 +157,8 @@ function initMap() {
       }
     ],
   });
+  
+  geocoder = new google.maps.Geocoder();
 
   // Create the search box and link it to the UI element.
   var input = document.getElementById('pac-input');
@@ -216,4 +218,89 @@ function initMap() {
     });
     map.fitBounds(bounds);
   });
+
+  var event_ids;
+
+  $.ajax({
+    async: false,
+    url: "http://10.25.53.76/scripts/get_all_events.php",
+    success: function(data) {
+      event_ids = data.split(",");
+    },
+  });
+
+  console.log(event_ids);
+
+  for (i = 0; i < event_ids.length; i++) {
+
+    (function () {
+      let event_id = event_ids[i];
+      var resp_temp;
+      var data_temp;
+      $.ajax({
+        async: false,
+        url: "http://10.25.53.76/scripts/get_event_data.php?id=" + event_id,
+        success: function(resp) {
+          resp_temp = JSON.parse(resp);
+          console.log(resp_temp["data"]);
+          data_temp = JSON.parse(resp_temp["data"]);
+        }
+      });
+
+      var event_mark = new google.maps.Marker({
+        position: {lat: parseFloat(data_temp["lat"]), lng: parseFloat(data_temp["long"])},
+        map: map,
+        title: data_temp["name"]
+      });
+
+      event_mark.addListener('click', function() {
+        map.setZoom(15);
+        map.setCenter(event_mark.getPosition());
+        updateSidebar(resp_temp);
+      });
+
+    })();
+
+  }
+
 }
+
+function updateSidebar(resp_temp) {
+  let name = resp_temp["name"];
+  let org_id = resp_temp["organization"];
+  let date = resp_temp["date"];
+  let attendees = resp_temp["users"];
+
+  let raw_data = JSON.parse(resp_temp["data"]);
+  let lat = parseFloat(raw_data["lat"]);
+  let lng = parseFloat(raw_data["long"]);
+  let time = raw_data["time"];
+
+  $("#event-title").html(name);
+  $("#event-org").html(org_id);
+  $("#event-date").html(date);
+  $("#event-time").html(time);
+  codeLatLng(lat,lng);
+}
+
+
+function codeLatLng(lat, lng) {
+  var latlng = new google.maps.LatLng(lat, lng);
+  geocoder.geocode({
+    'latLng': latlng
+  }, function (results, status) {
+    if (status === google.maps.GeocoderStatus.OK) {
+      if (results[1]) {
+        //console.log(results[1].formatted_address);
+        $("#event-loc").html(results[1].formatted_address);
+      } else {
+        return "Exact address not found";
+      }
+    } else {
+      return "Exact address not found";
+    }
+  });
+}
+
+
+
