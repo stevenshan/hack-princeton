@@ -231,39 +231,40 @@ function initMap() {
 
   console.log(event_ids);
 
-  var event_markers = {};
-
   for (i = 0; i < event_ids.length; i++) {
-    var resp_temp;
-    var data_temp;
-    $.ajax({
-      async: false,
-      url: "http://10.25.53.76/scripts/get_event_data.php?id=" + event_ids[i],
-      success: function(resp) {
-        resp_temp = JSON.parse(resp);
-        console.log(resp_temp["data"]);
-        data_temp = JSON.parse(resp_temp["data"]);
-      }
-    });
 
-    var event_mark = new google.maps.Marker({
-      position: {lat: parseFloat(data_temp["lat"]), lng: parseFloat(data_temp["long"])},
-      map: map,
-      title: data_temp["name"]
-    });
+    (function () {
+      let event_id = event_ids[i];
+      var resp_temp;
+      var data_temp;
+      $.ajax({
+        async: false,
+        url: "http://10.25.53.76/scripts/get_event_data.php?id=" + event_id,
+        success: function(resp) {
+          resp_temp = JSON.parse(resp);
+          console.log(resp_temp["data"]);
+          data_temp = JSON.parse(resp_temp["data"]);
+        }
+      });
 
-    event_markers[event_mark] = [event_mark, resp_temp, data_temp];
+      var event_mark = new google.maps.Marker({
+        position: {lat: parseFloat(data_temp["lat"]), lng: parseFloat(data_temp["long"])},
+        map: map,
+        title: data_temp["name"]
+      });
 
-    event_mark.addListener('click', function() {
-      map.setZoom(8);
-      map.setCenter(event_mark.getPosition());
-      updateSidebar(event_mark);
-    });
+      event_mark.addListener('click', function() {
+        map.setZoom(15);
+        map.setCenter(event_mark.getPosition());
+        updateSidebar(resp_temp);
+      });
+
+    })();
 
   }
 
 }
 
-function updateSidebar(event_mark) {
-  console.log(event_markers[event_mark]);
+function updateSidebar(resp_temp) {
+  console.log(resp_temp);
 }
