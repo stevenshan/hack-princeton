@@ -228,7 +228,7 @@ function initMap() {
       }  
     }
   };
-  
+
   // Create the search box and link it to the UI element.
   var input = document.getElementById('pac-input');
   var searchBox = new google.maps.places.SearchBox(input);
@@ -353,7 +353,7 @@ function updateSidebar(resp_temp) {
   });
 
   let date = resp_temp["date"];
-  let attendees = resp_temp["users"];
+  let attendees = resp_temp["users"].split(",");
 
   let raw_data = JSON.parse(resp_temp["data"]);
   let lat = parseFloat(raw_data["lat"]);
@@ -367,9 +367,10 @@ function updateSidebar(resp_temp) {
   $("#event-date").html(date);
   $("#event-start").html(start);
   $("#event-end").html(end);
+  $("#num-people").html(attendees.length);
   $("#event-description").html(desc);
-  $("#event-divider").css("visibility", "visible")
-  $("#event-table").css("visibility", "visible")
+  $("#event-divider").css("visibility", "visible");
+  $("#event-table").css("visibility", "visible");
   codeLatLng(lat,lng);
 }
 
