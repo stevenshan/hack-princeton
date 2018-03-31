@@ -1,0 +1,7 @@
+<?php
+    define('DB_SERVER', 'localhost:3036');
+    define('DB_USERNAME', 'USERNAME_HERE');
+    define('DB_PASSWORD', 'PASSWORD_HERE');
+    define('DB_DATABASE', 'hackprinceton');
+    $db = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
+?>
