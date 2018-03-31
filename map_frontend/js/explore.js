@@ -157,6 +157,8 @@ function initMap() {
       }
     ],
   });
+  
+  geocoder = new google.maps.Geocoder();
 
   // Create the search box and link it to the UI element.
   var input = document.getElementById('pac-input');
@@ -264,5 +266,41 @@ function initMap() {
 }
 
 function updateSidebar(resp_temp) {
-  console.log(resp_temp);
+  let name = resp_temp["name"];
+  let org_id = resp_temp["organization"];
+  let date = resp_temp["date"];
+  let attendees = resp_temp["users"];
+
+  let raw_data = JSON.parse(resp_temp["data"]);
+  let lat = parseFloat(raw_data["lat"]);
+  let lng = parseFloat(raw_data["long"]);
+  let time = raw_data["time"];
+
+  $("#event-title").html(name);
+  $("#event-org").html(org_id);
+  $("#event-date").html(date);
+  $("#event-time").html(time);
+  codeLatLng(lat,lng);
 }
+
+
+function codeLatLng(lat, lng) {
+  var latlng = new google.maps.LatLng(lat, lng);
+  geocoder.geocode({
+    'latLng': latlng
+  }, function (results, status) {
+    if (status === google.maps.GeocoderStatus.OK) {
+      if (results[1]) {
+        //console.log(results[1].formatted_address);
+        $("#event-loc").html(results[1].formatted_address);
+      } else {
+        return "Exact address not found";
+      }
+    } else {
+      return "Exact address not found";
+    }
+  });
+}
+
+
+
