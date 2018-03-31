@@ -19,7 +19,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Register</title>
+    <title>Volunteer Registration</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -66,6 +66,7 @@
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
       <p> </p>
       <p style='text-align:center'>Already have an account? &nbsp; <a href    ="login.php">Log in here!</a></p>
+      <p style='text-align:center'>Not a volunteer? &nbsp; <a href    ="register_organization.php">Organization registration</a></p>
       <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2018</p>
     </form>
   </body>
