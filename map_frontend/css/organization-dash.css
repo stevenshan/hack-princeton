@@ -88,11 +88,42 @@ header {
 #empty-message {
 	position: absolute;
 	width: 100%;
-	top: 105px;
+	left: 0px;
+	top: 100px;
 }
 
 .event {
 	background: #fefefe;
 	position: relative;
 	width: 100%;
+	border-bottom: 1px solid #C4C4C4;
+	padding-bottom: 20px;
+}
+
+.event:last-child {
+	border-bottom: 0px;
+	padding-bottom: 0px;
+}
+
+.event h4 {
+	font-size: 20px;
+	min-height: 25px;
+}
+
+.event-name {
+	width: 100%;
+	line-height: 35px;
+	font-size: 17px;
+	overflow: hidden;
+}
+
+.event-name span {
+	float: right;
+	display: inline-block;
+	font-size: 15px;
+}
+
+.event-right {
+	max-height:100px;
+	overflow: hidden;
 }
