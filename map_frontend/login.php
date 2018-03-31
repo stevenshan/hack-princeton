@@ -35,6 +35,8 @@
         <!--<h1 class="h3 mb-3 font-weight-normal">Login</h1>-->
       </div>
 
+      <div style='text-align:center'><h4> VOLUNTEER LOG IN </h4></div>
+      <p> </p>
       <?php
         if ($error != "")
         {
@@ -45,8 +47,6 @@
       <?php
         }
       ?>
-      <div style='text-align:center'><h4> VOLUNTEER LOG IN </h4></div>
-      <p> </p>
       <div class="form-label-group">
         <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
         <label for="inputEmail">Email address</label>

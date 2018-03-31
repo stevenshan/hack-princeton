@@ -45,7 +45,8 @@
       <?php
         }
       ?>
-
+      <div style='text-align:center'><h4> ADD AN EVENT</h4></div>
+      <p> </p>
       <div class="form-label-group">
         <input type="text" name="name" id="inputName" class="form-control" placeholder="Name" required autofocus>
         <label for="inputName">Name</label>
