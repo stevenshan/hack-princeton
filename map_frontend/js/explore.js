@@ -365,7 +365,9 @@ function hideBackground() {
   $("nav").css("background-color", "#00000000");
   $("nav").css("overflow-y", "hidden");
   $("#event-table").css("visibility", "hidden");
+  $("#event-divider").css("visibility", "hidden");
   $("#infobox").css("visibility", "hidden");
+  $("#navbar").css("background", "#00000000");
 }
 
 function showBackground() {
@@ -375,4 +377,6 @@ function showBackground() {
   $("nav").css("overflow-y", "scroll");
   $("#infobox").css("visibility", "visible");
   $("#event-table").css("visibility", "visible");
+  $("#event-divider").css("visibility", "visible");
+  $("#navbar").css("background", "#fff");
 }

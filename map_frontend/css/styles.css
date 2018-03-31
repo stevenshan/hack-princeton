@@ -92,10 +92,18 @@ html, body {
   overflow: hidden;
 }
 
+#event-table {
+  margin-bottom: 60px;
+}
+
 #event-divider {
   visibility: hidden;
 }
 
 .navbar-toggle-newline {
   display: inline-block;
+}
+
+.navbar-header {
+  background-color: #fff;
 }
