@@ -45,3 +45,4 @@ function add_org(name, users, data)
         </div>';
     $("#orgs_list").append(raw);
 }
+

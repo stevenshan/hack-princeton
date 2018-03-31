@@ -1,13 +1,13 @@
 <?php
-  include("scripts/session.php");
-  if (!$success)
+  include("scripts/organization_session.php");
+  if ($success)
   {
-    header("location:/");
+    header("location:/organization_dashboard.php");
   }
   include("scripts/create_org.php");
   if ($success)
   {
-    header("location:/");
+    header("location:/organization_dashboard.php");
   }
 ?>
 
@@ -19,7 +19,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Create Organization</title>
+    <title>Register</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -47,11 +47,16 @@
       ?>
 
       <div class="form-label-group">
-        <input type="text" name="name" id="inputName" class="form-control" placeholder="Organization Name" required autofocus>
-        <label for="inputName">Organization Name</label>
+        <input type="text" name="name" id="inputName" class="form-control" placeholder="Name" required autofocus>
+        <label for="inputName">Name</label>
       </div>
 
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Create</button>
+      <div class="form-label-group">
+        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <label for="inputPassword">Password</label>
+      </div>
+
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
       <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2018</p>
     </form>
   </body>

@@ -6,49 +6,26 @@
 	$error="";
 	$orgid=-1;
 
-	// make sure user is logged in
-	include("session.php");
-	if (!$success)
-	{
-		$error="You must be logged in to create an organization";
-	}
-	else
-	{
-		include("config.php");
-		session_start();
-		$success=false;
-		if($_SERVER["REQUEST_METHOD"] == "POST") {
-		    $orgname=mysqli_real_escape_string($db,$_POST['name']);
-		    $orgowner=$_SESSION["login_user"];
+	include("config.php");
+	session_start();
+	$success=false;
+	if($_SERVER["REQUEST_METHOD"] == "POST") {
+	    $orgname=mysqli_real_escape_string($db,$_POST['name']);
+	    $orgpassword=mysqli_real_escape_string($db,$_POST['password']);
 
-			$sql="INSERT INTO `Organizations`(`name`, `owner`) " .
-				 "VALUES ('$orgname', '$orgowner')";
-		    $result=mysqli_query($db,$sql);
+		$sql="INSERT INTO `Organizations`(`name`, `password`) " .
+			 "VALUES ('$orgname', '$orgpassword')";
+	    $result=mysqli_query($db,$sql);
 
-		    if ($result === false)
-		    {
-		    	$success = false;
-		    	$error="Unable to register organization";
-		    }
-		    else
-		    {
-		    	$orgid=$db->insert_id;
-		    	$sql="SELECT organizations FROM Users WHERE id='$orgowner'";
-		    	$result=mysqli_query($db, $sql);
-		    	$row=mysqli_fetch_array($result,MYSQLI_ASSOC);
-		    	$new_data=$row["organizations"];
-		    	if ($new_data == "")
-		    	{
-		    		$new_data = $orgid;
-		    	}
-		    	else
-		    	{
-		    		$new_data = $new_data . "," . $orgid;
-		    	}
-		    	$sql = "UPDATE `Users` SET `organizations`='$new_data' WHERE id='$orgowner'";
-		    	mysqli_query($db, $sql); 
-		    	$success = true;
-		    }
-		}
+	    if ($result === false)
+	    {
+	    	$success = false;
+	    	$error="Unable to register organization";
+	    }
+	    else
+	    {
+	    	$_SESSION["org_user"]=$db->insert_id;
+	    	$success = true;
+	    }
 	}
 ?>
