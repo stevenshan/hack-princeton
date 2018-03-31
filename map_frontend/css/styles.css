@@ -40,7 +40,7 @@ html, body {
 }
 
 #welcome {
-  padding: 10px;
+  padding: 16px;
 }
 
 #welcome a, #welcome p {
@@ -94,4 +94,8 @@ html, body {
 
 #event-divider {
   visibility: hidden;
+}
+
+.navbar-toggle-newline {
+  display: inline-block;
 }

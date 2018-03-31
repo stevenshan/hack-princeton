@@ -1,4 +1,7 @@
+var sidebarDisplay = false;
+
 function initMap() {
+  hideBackground();
 
   var princeton = {lat: 40.3474393, lng: -74.657609};
   // Note: This example requires that you consent to location sharing when
@@ -266,6 +269,8 @@ function initMap() {
 }
 
 function updateSidebar(resp_temp) {
+  showBackground();
+
   let name = resp_temp["name"];
   let org_id = resp_temp["organization"];
   let date = resp_temp["date"];
@@ -306,4 +311,29 @@ function codeLatLng(lat, lng) {
       return "Exact address not found";
     }
   });
+}
+
+function toggleBackground() {
+  sidebarDisplay = !sidebarDisplay;
+
+  if (sidebarDisplay)
+    showBackground();
+  else
+    hideBackground();
+}
+
+function hideBackground() {
+  sidebarDisplay = false;
+  $("nav").css("box-shadow", "none");
+  $("nav").css("background-color", "#00000000");
+  $("#event-table").css("visibility", "hidden");
+  $("#infobox").css("visibility", "hidden");
+}
+
+function showBackground() {
+  sidebarDisplay = true;
+  $("nav").css("background-color", "#ffffff");
+  $("nav").css("box-shadow", "-5px 0px 15px #aaa");
+  $("#infobox").css("visibility", "visible");
+  $("#event-table").css("visibility", "visible");
 }

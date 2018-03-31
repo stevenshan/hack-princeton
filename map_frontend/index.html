@@ -17,17 +17,25 @@
   <nav class="navbar navbar-default navbar-fixed-right">
     <div class="container">
 
+      <button type="button" class="navbar-toggle navbar-toggle-newline" onclick="toggleBackground()">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
       <div id="welcome" class="nav navbar-nav pull-right">
+
         <a href="#" class="navbar-brand welcome-name">Welcome, USERNAME</a>
         <p class="navbar-brand welcome-name">&nbsp;&nbsp; | &nbsp;&nbsp;</p>
         <a class="navbar-brand welcome-name" href="#"><img src="./assets/exit.png" width="22px" alt="logout" style="opacity: 0.4"></a>
       </div>
 
-      <div id="infobox">
+      <div id="infobox" class="">
         <!-- <img src="http://www.catster.com/wp-content/uploads/2017/08/A-brown-cat-licking-its-lips.jpg"> -->
         <h1 id="event-title" class="event-title"></h1>
         <hr id="event-divider"/>
-        <table id="event-table" class="event-info" style="visibility: hidden">
+        <table id="event-table" class="event-info">
           <tr>
             <td>
               <b>Organization<b>
