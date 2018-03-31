@@ -31,10 +31,13 @@
 				t 1	
 			</div>
 			<div class="container" id="events-container">
-				<h3>Events <span class="event_count">()</span><a href="register_event.php">New Event <img src="imgs/add_white.svg" width="20"></a></h3>
 				<div class="events-message" id="empty-message">
 					Your organization does not have any events. Click on "New Event" button to create a new one.
 				</div>
+				<h3>Events <span class="event_count">()</span><a href="register_event.php">New Event <img src="imgs/add_white.svg" width="20"></a></h3>
+				<label class="event">
+					<h4>Event</h4>
+				</label>
 			</div>
 		</main>
 
