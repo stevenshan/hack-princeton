@@ -35,6 +35,8 @@
         <!--<h1 class="h3 mb-3 font-weight-normal">Login</h1>-->
       </div>
 
+      <div style='text-align:center'><h4> ORGANIZATION REGISTRATION </h4></div>
+      <p> </p>
       <?php
         if ($error != "")
         {
@@ -48,7 +50,12 @@
 
       <div class="form-label-group">
         <input type="text" name="name" id="inputName" class="form-control" placeholder="Name" required autofocus>
-        <label for="inputName">Name</label>
+        <label for="inputName">Organization name</label>
+      </div>
+
+      <div class="form-label-group">
+        <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <label for="inputEmail">Organization email address</label>
       </div>
 
       <div class="form-label-group">
@@ -57,6 +64,8 @@
       </div>
 
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+      <p> </p>
+      <p style='text-align:center'>Already have an account? &nbsp; <a href    ="login_organization.php">Log in here!</a></p>
       <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2018</p>
     </form>
   </body>

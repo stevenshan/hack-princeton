@@ -15,7 +15,7 @@
         $myname=mysqli_real_escape_string($db,$_POST["name"]);
         $mypassword=mysqli_real_escape_string($db,$_POST["password"]); 
 
-        $sql="SELECT id FROM Organizations WHERE name='$myname' and password='$mypassword'";
+        $sql="SELECT id FROM Organizations WHERE (name='$myname' OR email='$myname') and password='$mypassword'";
         $result=mysqli_query($db, $sql);
         $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
 
