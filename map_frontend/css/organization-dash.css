@@ -20,8 +20,13 @@ header,
 header {
 	background: #6f42c1;
 	color: #FFFFFF;
-	font-size: 15px;
+	font-size: 20px;
 	font-weight: bold;
+	line-height: 25px;
+}
+
+.container {
+	position: relative;
 }
 
 .container > h3 {
@@ -32,4 +37,62 @@ header {
 	padding-bottom: 20px;
 	margin: 0px;
 	margin-bottom: 20px;
+	font-size: 20px;
+	line-height: 30px;
+}
+
+.container h3 img {
+	vertical-align: middle;
+}
+
+.container h3 a {
+	float: right;
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 12px;
+	color: white;
+	background: #28a745;
+	background-image: linear-gradient(-180deg, #34d058 0%, #28a745 90%);
+	border-radius: 5px;
+	padding: 3px;
+	padding-left: 7px;
+	font-weight: bold;
+	border: 1px solid #8e8f91;
+	margin-top: -4px;
+	text-decoration: none;
+}
+
+.container h3 a:hover {
+	background-image: linear-gradient(-180deg, #28a745 0%, #34d058 90%);
+}
+
+.container h3 span {
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.container h4 {
+	padding: 0px;
+	margin: 0px;
+	font-size: 25px;
+}
+
+#events-container {
+	min-height: 150px;
+}
+
+.events-message {
+	text-align: center;
+}
+
+#empty-message {
+	position: absolute;
+	width: 100%;
+	top: 105px;
+}
+
+.event {
+	background: #fefefe;
+	position: relative;
+	width: 100%;
 }

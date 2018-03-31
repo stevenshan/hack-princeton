@@ -45,7 +45,7 @@
       <?php
         }
       ?>
-      <div style='text-align:center'><h4> ADD AN EVENT</h4></div>
+      <div style='text-align:center'><a style="float: left; vertical-align: middle" href="organization_dashboard.php" title="Back to Dashboard"><img width="30" src="imgs/back.svg"></a><h4> ADD AN EVENT</h4></div>
       <p> </p>
       <div class="form-label-group">
         <input type="text" name="name" id="inputName" class="form-control" placeholder="Name" required autofocus>

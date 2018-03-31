@@ -30,7 +30,6 @@
 			$sql="INSERT INTO `Events`(`name`, `date`, `organization`, `data`) " .
 				 "VALUES ('$eventname', '$eventdate', '$eventorg', '$data')";
 		    $result=mysqli_query($db,$sql);
-		    echo mysqli_error($db);
 
 		    if ($result === false)
 		    {
@@ -39,6 +38,21 @@
 		    }
 		    else
 		    {
+		    	$last_id=$db->insert_id;
+		    	$sql="SELECT events FROM `Organizations` WHERE id='$eventorg'";
+		    	$result=mysqli_query($db,$sql);
+		    	$row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+		    	$new_events=$row["events"];
+		    	if (strlen($new_events) == 0)
+		    	{
+		    		$new_events=$last_id;
+		    	}
+		    	else
+		    	{
+		    		$new_events=$new_events . "," . $last_id;
+		    	}
+		    	$sql="UPDATE `Organizations` SET events='$new_events' WHERE id='$eventorg'";
+		    	mysqli_query($db,$sql);
 		    	$success = true;
 		    }
 		}
