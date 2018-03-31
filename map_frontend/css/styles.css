@@ -1,4 +1,34 @@
 html, body {
+  height: 100%;
   padding: 0;
   margin: 0;
+}
+
+/* Always set the map height explicitly to define the size of the div
+ * element that contains the map. */
+#map {
+  height: 100%;
+  width: 100%;
+}
+
+#pac-input.controls {
+  background-color: #fff;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  height: 40px;
+  margin-left: 432px;
+  margin-top: 10px;
+  outline: none;
+  padding: 5px 20px 5px 10px;
+  text-overflow: ellipsis;
+  width: 400px;
+}
+
+#pac-input.controls:focus {
+  border-color: #4d90fe;
 }

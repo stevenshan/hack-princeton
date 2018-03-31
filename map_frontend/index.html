@@ -3,10 +3,10 @@
 
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/paper/bootstrap.min.css" />
+  <link rel="stylesheet" href="./css/bootstrap.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="../css/navbar-fixed-right.css">
-  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="./css/navbar-fixed-right.css">
+  <link rel="stylesheet" href="./css/styles.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <title>Explore</title>
@@ -14,20 +14,14 @@
 
 <body>
   <!-- NAVIGATION/SIDEBAR -->
-  <nav class="navbar navbar-inverse navbar-fixed-right">
+  <nav class="navbar navbar-default navbar-fixed-right">
     <div class="container">
 
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
         <a class="navbar-brand" href="#">HackPrinceton Spring 2018</a>
       </div>
 
-      <div id="navbar" class="navbar-collapse collapse">
+      <div id="navbar">
         <ul class="nav navbar-nav">
           <li><a href="#">Profile</a></li>
           <li role="separator" class="divider"></li>
@@ -37,8 +31,18 @@
     </div> <!-- /container -->
   </nav>
 
+  <main>
+    <div class="container" style="width: 100%; height: 100%; position: absolute; padding: 0; margin-left: -420px;">
+     <input id="pac-input" class="controls" type="text" placeholder="Search for places...">
+     <div id="map"></div>
+   </div>
 
 
+    <script type="text/javascript" src="./js/explore.js"></script>
+    <!-- API key: AIzaSyA4oufZ_wBBWQlZzWrNQ5SeQ2HmSvsuKbo -->
+    <!-- &callback= -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4oufZ_wBBWQlZzWrNQ5SeQ2HmSvsuKbo&libraries=places&callback=initMap"></script>
+  </main>
 
 </body>
 </html>
