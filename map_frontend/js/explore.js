@@ -8,6 +8,9 @@ function initMap() {
   var map;
   map = new google.maps.Map(document.getElementById('map'), {
     zoomControl: true,
+    zoomControlOptions: {
+      position: google.maps.ControlPosition.LEFT_BOTTOM
+    },
     mapTypeControl: false,
     scaleControl: false,
     streetViewControl: false,

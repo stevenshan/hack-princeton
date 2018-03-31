@@ -21,7 +21,7 @@ html, body {
   font-size: 15px;
   font-weight: 300;
   height: 40px;
-  margin-left: 432px;
+  margin-left: 12px;
   margin-top: 10px;
   outline: none;
   padding: 5px 20px 5px 10px;
@@ -31,4 +31,10 @@ html, body {
 
 #pac-input.controls:focus {
   border-color: #4d90fe;
+}
+
+.centered-header {
+  margin: 0 auto;
+  width: 420px;
+  text-align: center;
 }
