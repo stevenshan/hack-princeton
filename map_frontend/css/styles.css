@@ -21,8 +21,8 @@ html, body {
   font-size: 15px;
   font-weight: 300;
   height: 40px;
-  margin-left: 12px;
-  margin-top: 10px;
+  margin-left: 20px;
+  margin-top: 20px;
   outline: none;
   padding: 5px 20px 5px 10px;
   text-overflow: ellipsis;
@@ -37,4 +37,36 @@ html, body {
   margin: 0 auto;
   width: 420px;
   text-align: center;
+}
+
+#infobox {
+}
+
+#welcome {
+  padding: 10px;
+}
+
+#welcome a, #welcome p {
+  display: inline-block;
+  padding-top: 0px;
+}
+
+#welcome a img {
+  display: inline-block;
+  padding-top: 0px;
+  margin-top: 0px;
+}
+
+#navbar {
+  position: fixed;
+  bottom: 0px;
+}
+
+.navbar-brand.welcome-name {
+  font-size: 16px;
+  margin-left: 0px;
+  margin-right: 18px;
+  margin-top: 3px;
+  margin-bottom: 0px;
+  padding: 0px;
 }
