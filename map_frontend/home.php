@@ -34,7 +34,7 @@
     </div>
 
     <div style='text-align:center'>
-      <h1 class="huge">I am a...</h1>
+      <h1 class="huge">I am a(n)...</h1>
     </div>
 
     <div id="outer">
