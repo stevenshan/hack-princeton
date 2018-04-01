@@ -25,12 +25,10 @@ $(function(){
 		num_friends = 0;
 		friends.forEach(function(e){
 			n = "";
-			flag = false;
 			if (e.charAt(0) == "#")
 			{
 				num_friend_requests += 1;
 				n = e.substring(1);
-				flag = true;
 			}
 			else
 			{
@@ -38,7 +36,7 @@ $(function(){
 				n = e;
 			}
 			httpGetAsync("/scripts/get_name.php?id=" + n, function(data){
-				if (flag)
+				if (e.charAt(0) == "#")
 				{
 					msg = '<div class="friend">' + data + 
 						'<div class="friend-choice"><div class="choice-accept" onclick="faccept(' + n + ')"></div><div class="choice-reject" onclick="freject(' + n + ')"></div></div> \
