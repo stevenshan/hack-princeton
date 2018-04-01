@@ -376,6 +376,22 @@ function updateSidebar(event_id) {
     alreadySignedUp();
   }
 
+  for (var a = 0; a < attendees.length; a++) {
+    let attendee = attendees[a];
+    if (friends.indexOf(attendee) > -1) {
+      $.ajax({
+        async: false,
+        url: "/scripts/get_user_data.php?id=" + attendee + "&param=thumbnail",
+        success: function(response) {
+          let propic = "./imgs/user" + response + ".png";
+          $("#event-friends").append(
+            "<img src='" + propic + "' width='20px' style='margin: 3px'>"
+          );
+        }
+      });
+    }
+  }
+
   let raw_data = JSON.parse(updated_resp_temp["data"]);
   let lat = parseFloat(raw_data["lat"]);
   let lng = parseFloat(raw_data["long"]);

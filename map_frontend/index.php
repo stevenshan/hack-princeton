@@ -118,6 +118,15 @@
                   &nbsp;
                 </td>
               </tr>
+
+              <tr>
+                <td>
+                  <b>Friends</b>
+                </td>
+                <td id="event-friends" class="event-info">
+                  &nbsp;
+                </td>
+              </tr>
             </table>
           </div>
         </li>

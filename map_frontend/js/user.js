@@ -1,5 +1,6 @@
 uid = -1;
 name = "Guest";
+friends = [];
 
 $.ajax({
   async: false,
@@ -14,5 +15,13 @@ $.ajax({
   url: "/scripts/get_name.php?id=" + uid,
   success: function(response) {
     name = response;
+  }
+});
+
+$.ajax({
+  async: false,
+  url: "/scripts/get_user_data.php?param=friends",
+  success: function(response) {
+    friends = response.split(",")
   }
 });
