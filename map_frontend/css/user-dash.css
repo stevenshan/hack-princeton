@@ -27,7 +27,17 @@
 	width: 50%;
 	left: 50%;
 	text-align: center;
+}
+
+#friends-bar-right:after {
+	content: "";
+	display: block;
+	height: 50px;
+	width: 0px;
+	position: absolute;
 	border-left: 1px solid #b3b3b5;
+	top: 0px;
+	left: 0px;
 }
 
 #friends-bar-right input {

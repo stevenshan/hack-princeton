@@ -33,7 +33,7 @@
 					<div id="friends-bar-left"></div>
 					<div id="friends-bar-right">
 						<form id="friend-search">
-							<input type="text" placeholder="Search for friends" name="name" id="friend-name">	
+							<input type="text" placeholder="Search for friends" name="name" id="friend-name" required>	
 						</form>
 					</div>
 				</div>

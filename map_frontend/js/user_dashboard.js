@@ -28,3 +28,20 @@ $(function(){
 		add_events(events, num_events, e);
 	});
 });
+
+$("#friend-search").submit(function(){
+	url="/scripts/add_friend.php?query=" + $("#friend-name").val();
+	console.log(url);
+	httpGetAsync(url, function(e){
+		console.log(e);
+		if (e.length ==0 || e.charAt(0) == "1")
+		{
+			alert("Friend request was sent");
+		}
+		else
+		{
+			alert(e);
+		}
+	});
+	return false;
+});
