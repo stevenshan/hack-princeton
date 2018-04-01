@@ -7,7 +7,7 @@ $(function(){
 		goal = parseInt(e["goal"]);
 
 		$("#progress-bar").css("width", String(hours / goal * 100) + "%");
-		$("#progress-bar").html(String(hours / goal * 100) + "%");
+		$("#progress-bar").html("<p>" + String(hours / goal * 100) + "% </p>");
 
 		thumbnail_url="/imgs/user" + e["thumbnail"] + ".png";
 		$("header").prepend("<img id=\"thumbnailimg\" src=\"" + thumbnail_url + "\">");

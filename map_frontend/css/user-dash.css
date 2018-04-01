@@ -107,8 +107,12 @@
 }
 
 .progress {
-	width: 75%;
+	width: 50%;
 	height: 20px;
 	border-radius: 2px;
 	margin: 0 auto;
+}
+
+.progress-bar p {
+	margin: 2px;
 }
