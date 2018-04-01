@@ -327,7 +327,6 @@ function initMap() {
       event_mark.addListener('click', function() {
         map.setZoom(15);
         map.setCenter(event_mark.getPosition());
-        event_responses[event_id] = resp_temp;
         updateSidebar(resp_temp);
       });
 
