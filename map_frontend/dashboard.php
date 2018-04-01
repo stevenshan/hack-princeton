@@ -33,7 +33,8 @@
 		<main>
 			<div
 			  class="ldBar"
-			  data-stroke="data:ldbar/res,gradient(0,1,#f99,#ff9)">  	
+			  data-stroke="data:ldbar/res,gradient(0,1,#f99,#ff9)"
+			  data-value="50">  	
 			</div>
 			<div class="container" id="friends-container">
 				<div id="friends-bar">
