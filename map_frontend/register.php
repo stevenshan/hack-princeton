@@ -31,7 +31,7 @@
   <body>
     <form class="form-signin" action="" method="post">
       <div class="text-center mb-4">
-        <img class="mb-4" src="icon.svg" alt="" width="72" height="72">
+        <img class="mb-4" src="imgs/logo.svg" alt="" width="164" height="164">
         <!--<h1 class="h3 mb-3 font-weight-normal">Login</h1>-->
       </div>
 

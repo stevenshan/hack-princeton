@@ -26,12 +26,23 @@
 
     <!-- Custom styles for this template -->
     <link href="css/floating-labels.css" rel="stylesheet">
+  
+    <style>
+    body  {
+       background-image: url("imgs/handsOnHands.jpg");
+       -webkit-background-size: cover;
+       -moz-background-size: cover;
+       -o-background-size: cover;
+       -background-size: cover;
+       opacity: 0.5;
+    }
+    </style>
   </head>
 
   <body>
     <form class="form-signin" action="" method="post">
       <div class="text-center mb-4">
-        <img class="mb-4" src="icon.svg" alt="" width="72" height="72">
+        <img class="mb-4" src="imgs\logo.svg" alt="" width="164" height="164">
         <!--<h1 class="h3 mb-3 font-weight-normal">Login</h1>-->
       </div>
 
