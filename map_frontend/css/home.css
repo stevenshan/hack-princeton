@@ -1,10 +1,22 @@
-
-outer
-{
-    width:100%;
-    text-align: center;
+body {
+  font-family: 'Yantramanav', sans-serif;
+  font-size: 48px;
 }
-.inner
-{
-    display: inline-block;
+
+div.huge {
+  font-size: 150px;
+}
+
+outer {
+  width:100%;
+  text-align: center;
+}
+
+.inner {
+  display: inline-block;
+}
+
+.button-label {
+  margin: 0;
+  padding: 0;
 }
