@@ -3,3 +3,45 @@
 	height: 30px;
 	margin-right: 10px;
 }
+
+
+#friends-bar {
+	width: 100%;
+	height: 50px;
+	position: relative;
+	line-height: 50px;
+	border-bottom: 1px solid #b3b3b5;
+}
+
+#friends-bar-left {
+	position: absolute;
+	top: -10px;
+	left: 0px;
+	width: 50%;
+	text-align: center;
+}
+
+#friends-bar-right {
+	position: absolute;
+	top: -10px;
+	width: 50%;
+	left: 50%;
+	text-align: center;
+	border-left: 1px solid #b3b3b5;
+}
+
+#friends-bar-right input {
+	text-align: center;
+	width: 80%;
+}
+
+#friends-message {
+	position: absolute;
+	width: 100%;
+	left: 0px;
+	top: 100px;
+}
+
+#friends-container {
+	min-height: 150px;
+}
