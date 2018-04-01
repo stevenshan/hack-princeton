@@ -1,7 +1,15 @@
-
 var current_event_id = -1;
+var uid = -1;
 
 function initMap() {
+
+  $.ajax({
+    async: false,
+    url: "http://10.25.53.76/scripts/get_user_id.php",
+    success: function(response) {
+      uid = parseInt(response);
+    }
+  });
 
   var princeton = {lat: 40.3474393, lng: -74.657609};
   // Note: This example requires that you consent to location sharing when
@@ -225,7 +233,7 @@ function initMap() {
         origin: new google.maps.Point(0,0),
         anchor: new google.maps.Point(17,34),
         scaledSize: new google.maps.Size(40,40)
-      }  
+      }
     }
   };
 
@@ -402,18 +410,13 @@ $(document).ready(function () {
   $("#signup-button").on('click', function () {
     if (current_event_id < 0) return;
     $.ajax({
-      async: false, 
+      async: false,
       url: "http://10.25.53.76/scripts/sign_up.php?id=" + current_event_id,
       success: function(response) {
-        
+
       }
     });
   })
 
 
 });
-
-
-
-
-
