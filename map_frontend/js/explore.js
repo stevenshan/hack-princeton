@@ -1,7 +1,5 @@
-var sidebarDisplay = false;
 
 function initMap() {
-  hideBackground();
 
   var princeton = {lat: 40.3474393, lng: -74.657609};
   // Note: This example requires that you consent to location sharing when
@@ -338,8 +336,7 @@ function initMap() {
 }
 
 function updateSidebar(resp_temp) {
-  showBackground();
-
+  $('#sidebar').removeClass('active');
   let name = resp_temp["name"];
   let org_id = resp_temp["organization"];
   var org_name;
@@ -369,8 +366,6 @@ function updateSidebar(resp_temp) {
   $("#event-end").html(end);
   $("#num-people").html(attendees.length);
   $("#event-description").html(desc);
-  $("#event-divider").css("visibility", "visible");
-  $("#event-table").css("visibility", "visible");
   codeLatLng(lat,lng);
 }
 
@@ -392,33 +387,13 @@ function codeLatLng(lat, lng) {
   });
 }
 
-function toggleBackground() {
-  sidebarDisplay = !sidebarDisplay;
 
-  if (sidebarDisplay)
-    showBackground();
-  else
-    hideBackground();
-}
+$(document).ready(function () {
 
-function hideBackground() {
-  sidebarDisplay = false;
-  $("nav").css("box-shadow", "none");
-  $("nav").css("background-color", "#00000000");
-  $("nav").css("overflow-y", "hidden");
-  $("#event-table").css("visibility", "hidden");
-  $("#event-divider").css("visibility", "hidden");
-  $("#infobox").css("visibility", "hidden");
-  $("#navbar").css("background", "#00000000");
-}
+    // when opening the sidebar
+    $('#sidebarCollapse').on('click', function () {
+        // open sidebar
+        $('#sidebar').toggleClass('active');
+    });
 
-function showBackground() {
-  sidebarDisplay = true;
-  $("nav").css("background-color", "#ffffff");
-  $("nav").css("box-shadow", "-5px 0px 15px #aaa");
-  $("nav").css("overflow-y", "scroll");
-  $("#infobox").css("visibility", "visible");
-  $("#event-table").css("visibility", "visible");
-  $("#event-divider").css("visibility", "visible");
-  $("#navbar").css("background", "#fff");
-}
+});

@@ -5,7 +5,8 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="./css/bootstrap.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="./css/navbar-fixed-right.css">
+  <!-- <link rel="stylesheet" href="./css/navbar-fixed-right.css"> -->
+  <link rel="stylesheet" href="./css/navbar.css">
   <link rel="stylesheet" href="./css/styles.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -14,117 +15,124 @@
 
 <body>
   <!-- NAVIGATION/SIDEBAR -->
-  <nav class="navbar navbar-default navbar-fixed-right">
-    <div class="container">
+  <div class="wrapper">
 
-      <button type="button" class="navbar-toggle navbar-toggle-newline" onclick="toggleBackground()">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-
-      <div id="welcome" class="nav navbar-nav pull-right">
-
-        <a href="#" class="navbar-brand welcome-name">Welcome, USERNAME</a>
-        <p class="navbar-brand welcome-name">&nbsp;&nbsp; | &nbsp;&nbsp;</p>
-        <a class="navbar-brand welcome-name" href="#"><img src="./imgs/exit_black.png" width="22px" alt="logout" style="opacity: 0.4"></a>
+    <nav id="sidebar">
+      <div id="dismiss">
+        <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+          <img src="./icons/sandwich.png" width="32px">
+        </button>
       </div>
 
-      <div id="infobox" class="">
-        <h1 id="event-title" class="event-title"></h1>
-        <hr id="event-divider"/>
-        <div id="signup-button" class="centered-button">
-          <button type="button" class="btn btn-primary">Sign up</button>
+      <div class="sidebar-header">
+        <div id="welcome" class="nav navbar-nav pull-right">
+          <a href="#" class="navbar-brand welcome-name">Welcome, USERNAME</a>
+          <p class="navbar-brand welcome-name">&nbsp;&nbsp; | &nbsp;&nbsp;</p>
+          <a class="navbar-brand welcome-name" href="#"><img src="./imgs/exit_black.png" width="22px" alt="logout" style="opacity: 0.4"></a>
         </div>
-
-        <table id="event-table" class="event-info">
-
-          <tr>
-            <td>
-              <b>Organization<b>
-            </td>
-            <td id="event-org" class="event-info">
-              &nbsp;
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              <b>Description<b>
-            </td>
-            <td id="event-description" class="event-info">
-              &nbsp;
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              <b>Location<b>
-            </td>
-            <td id="event-loc" class="event-info">
-              &nbsp;
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              <b>Date<b>
-            </td>
-            <td id="event-date" class="event-info">
-              &nbsp;
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              <b>Start Time<b>
-            </td>
-            <td id="event-start" class="event-info">
-              &nbsp;
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              <b>End Time<b>
-            </td>
-            <td id="event-end" class="event-info">
-              &nbsp;
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              <b>No. of Volunteers<b>
-            </td>
-            <td id="num-people" class="event-info">
-              &nbsp;
-            </td>
-          </tr>
-        </table>
-
       </div>
 
-      <div id="navbar" class="navbar-header">
+      <ul class="list-unstyled components">
+
+        <li>
+          <div id="infobox" class="">
+            <h1 id="event-title" class="event-title"></h1>
+            <hr id="event-divider"/>
+            <div id="signup-button" class="centered-button">
+              <button type="button" class="btn btn-primary">Sign up</button>
+            </div>
+
+            <table id="event-table" class="event-info">
+              <tr>
+                <td>
+                  <b>Organization</b>
+                </td>
+                <td id="event-org" class="event-info">
+                  &nbsp;
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <b>Description</b>
+                </td>
+                <td id="event-description" class="event-info">
+                  &nbsp;
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <b>Location</b>
+                </td>
+                <td id="event-loc" class="event-info">
+                  &nbsp;
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <b>Date</b>
+                </td>
+                <td id="event-date" class="event-info">
+                  &nbsp;
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <b>Start Time</b>
+                </td>
+                <td id="event-start" class="event-info">
+                  &nbsp;
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <b>End Time</b>
+                </td>
+                <td id="event-end" class="event-info">
+                  &nbsp;
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <b>No. of Volunteers</b>
+                </td>
+                <td id="num-people" class="event-info">
+                  &nbsp;
+                </td>
+              </tr>
+            </table>
+          </div>
+        </li>
+      </ul>
+
+      <div id="navbar-footer" class="navbar-header">
         <a class="navbar-brand centered-header" href="#">HackPrinceton Spring 2018</a>
       </div>
 
 
-    </div> <!-- /container -->
-  </nav>
+    </nav>
+  </div> <!-- /wrapper -->
+
 
   <main>
     <div class="container" style="width: 100%; height: 100%; position: absolute; padding: 0; margin-left: 0px;">
-     <input id="pac-input" class="controls" type="text" placeholder="Search for places...">
-     <div id="map"></div>
-   </div>
-
+      <input id="pac-input" class="controls" type="text" placeholder="Search for places...">
+      <div id="map"></div>
+    </div>
 
     <script type="text/javascript" src="./js/explore.js"></script>
     <!-- API key: AIzaSyA4oufZ_wBBWQlZzWrNQ5SeQ2HmSvsuKbo -->
     <!-- &callback= -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4oufZ_wBBWQlZzWrNQ5SeQ2HmSvsuKbo&libraries=places&callback=initMap"></script>
+
+
+  </div>
+
   </main>
 
 </body>
