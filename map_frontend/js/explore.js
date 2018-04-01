@@ -387,9 +387,7 @@ function codeLatLng(lat, lng) {
   });
 }
 
-
 $(document).ready(function () {
-
     // when opening the sidebar
     $('#sidebarCollapse').on('click', function () {
         // open sidebar
