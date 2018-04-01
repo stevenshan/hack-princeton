@@ -336,7 +336,7 @@ function initMap() {
 }
 
 function updateSidebar(resp_temp) {
-
+  $('#sidebar').removeClass('active');
   let name = resp_temp["name"];
   let org_id = resp_temp["organization"];
   var org_name;
