@@ -1,5 +1,5 @@
 # HackPrinceton Spring 2018
-# Voulunteer Village
+# Volunteer Village
 Can be found [here]()
 
 # Inspiration
