@@ -291,7 +291,7 @@ function initMap() {
 
   $.ajax({
     async: false,
-    url: "http://" + ip + "/scripts/get_all_events.php",
+    url: "/scripts/get_all_events.php",
     success: function(data) {
       event_ids = data.split(",");
     },
@@ -307,7 +307,7 @@ function initMap() {
       var data_temp;
       $.ajax({
         async: false,
-        url: "http://" + ip + "/scripts/get_event_data.php?id=" + event_id,
+        url: "/scripts/get_event_data.php?id=" + event_id,
         success: function(resp) {
           resp_temp = JSON.parse(resp);
           console.log(resp_temp["data"]);
@@ -341,7 +341,7 @@ function updateSidebar(event_id) {
 
   $.ajax({
     async: false,
-    url: "http://" + ip + "/scripts/get_event_data.php?id=" + event_id,
+    url: "/scripts/get_event_data.php?id=" + event_id,
     success: function(resp) {
       updated_resp_temp = JSON.parse(resp);
     }
@@ -356,7 +356,7 @@ function updateSidebar(event_id) {
   var org_name;
   $.ajax({
     async: false,
-    url: "http://" + ip + "/scripts/get_org_data.php?id=" + org_id,
+    url: "/scripts/get_org_data.php?id=" + org_id,
     success: function(response) {
       org_info = JSON.parse(response);
       org_name = org_info["name"];
@@ -364,7 +364,12 @@ function updateSidebar(event_id) {
   });
 
   let date = updated_resp_temp["date"];
-  let attendees = updated_resp_temp["users"].split(",");
+  let attendees = updated_resp_temp["users"];
+  if (attendees == "") {
+    attendees = [];
+  } else {
+    attendees = attendees.split(",");
+  }
   console.log(attendees);
 
   if (attendees.indexOf(String(uid)) > -1) {
@@ -418,7 +423,7 @@ $(document).ready(function () {
 
     $.ajax({
       async: false,
-      url: "http://" + ip + "/scripts/signup.php?id=" + current_event_id,
+      url: "/scripts/signup.php?id=" + current_event_id,
       success: function(response) {
         alreadySignedUp();
       }

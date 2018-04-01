@@ -10,10 +10,87 @@ $(function(){
 		{
 			events = [];
 		}
+
+		friends = e["friends"].split(",");
+		if (e["friends"] == "")
+		{
+			friends = [];
+		}
+
 		num_events = events.length;
+
+		num_friends = friends.length;
+
+		num_friend_requests = 0;
+		num_friends = 0;
+		friends.forEach(function(e){
+			n = "";
+			flag = false;
+			if (e.charAt(0) == "#")
+			{
+				num_friend_requests += 1;
+				n = e.substring(1);
+				flag = true;
+			}
+			else
+			{
+				num_friends += 1;
+				n = e;
+			}
+			httpGetAsync("/scripts/get_name.php?id=" + n, function(data){
+				if (flag)
+				{
+					msg = '<div class="friend">' + data + 
+						'<div class="friend-choice"><div class="choice-accept" onclick="faccept(' + n + ')"></div><div class="choice-reject" onclick="freject(' + n + ')"></div></div> \
+					</div>';
+				}
+				else
+				{
+					msg = '<div class="friend">' + data +  '</div>';
+				}
+				$("#friends-container").append(msg);
+			});
+		});
 
 		$(".event_count").html("(" + num_events + ")");
 
+
+		$("#friends-bar-left").html(num_friends + " friends &nbsp; | &nbsp;" +
+									num_friend_requests + " friend requests");
+
 		add_events(events, num_events, e);
+
 	});
+});
+
+function faccept(id)
+{
+	httpGetAsync("/scripts/confirm_friend.php?reject=false&friend=" + id, function(e){
+		location.reload(); 
+	});
+}
+
+function freject(id)
+{
+	httpGetAsync("/scripts/confirm_friend.php?reject=true&friend=" + id, function(e){
+		location.reload(); 
+	});
+}
+
+
+$("#friend-search").submit(function(){
+	url="/scripts/add_friend.php?query=" + $("#friend-name").val();
+	console.log(url);
+	httpGetAsync(url, function(e){
+		console.log(e);
+		if (e.length ==0 || e.charAt(0) == "1")
+		{
+			alert("Friend request was sent");
+		}
+		else
+		{
+			alert(e);
+		}
+	});
+	return false;
 });

@@ -3,3 +3,101 @@
 	height: 30px;
 	margin-right: 10px;
 }
+
+
+#friends-bar {
+	width: 100%;
+	height: 50px;
+	position: relative;
+	line-height: 50px;
+	border-bottom: 1px solid #b3b3b5;
+}
+
+#friends-bar-left {
+	position: absolute;
+	top: -10px;
+	left: 0px;
+	width: 50%;
+	text-align: center;
+}
+
+#friends-bar-right {
+	position: absolute;
+	top: -10px;
+	width: 50%;
+	left: 50%;
+	text-align: center;
+}
+
+#friends-bar-right:after {
+	content: "";
+	display: block;
+	height: 50px;
+	width: 0px;
+	position: absolute;
+	border-left: 1px solid #b3b3b5;
+	top: 0px;
+	left: 0px;
+}
+
+#friends-bar-right input {
+	text-align: center;
+	width: 80%;
+}
+
+#friends-message {
+	position: absolute;
+	width: 100%;
+	left: 0px;
+	top: 100px;
+}
+
+#friends-container {
+	min-height: 150px;
+}
+
+.friend {
+	background: #fefefe;
+	position: relative;
+	width: 100%;
+	border-bottom: 1px solid #C4C4C4;
+	padding: 10px 0px;
+	text-align: center;
+}
+
+.friend h4 {
+	font-size: 20px;
+	min-height: 25px;
+}
+
+.friend-choice {
+	display: block;
+	position: absolute;
+	width: 425px;	
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;	
+	margin: auto;
+}
+
+.friend-choice .choice-accept,
+.friend-choice .choice-reject {
+	width: 20px;
+	height: 20px;
+	background-image: url("../imgs/accept.png");
+	background-repeat: no-repeat;
+	background-size: 20px 20px;
+	background-position: center center;
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	margin-top: auto;
+	margin-bottom: auto;
+	cursor: pointer;
+}
+
+.friend-choice .choice-reject {
+	background-image: url("../imgs/reject.png");
+	right: 0px;
+}

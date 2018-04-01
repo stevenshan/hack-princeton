@@ -1,10 +1,18 @@
 
-outer
-{
-    width:100%;
-    text-align: center;
+div.huge {
+  font-size: 150px;
 }
-.inner
-{
-    display: inline-block;
+
+outer {
+  width:100%;
+  text-align: center;
+}
+
+.inner {
+  display: inline-block;
+}
+
+.button-label {
+  margin: 0;
+  padding: 0;
 }

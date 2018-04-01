@@ -2,7 +2,7 @@
   include("scripts/session.php");
   if (!$success)
   {
-    header("location:/");
+    header("location:/login.php");
   }
 
   include("scripts/config.php");
@@ -25,15 +25,26 @@
 	<body>
 		<header>
 		    Welcome <?php echo $row["name"]; ?>! 
+		    <a href="index.hmtl" title="Map"><img src="imgs/map.png" width="22px" style="opacity: 1"></a>
 		    <a href="logout.php" title="Logout"><img id="dash-exit" src="imgs/exit_white.png" width="22px" alt="logout" style="opacity: 1"></a>
        	</header>
 		<main>
-			<div class="container">
-				t 1	
+			<div class="container" id="friends-container">
+				<div id="friends-bar">
+					<div id="friends-bar-left"></div>
+					<div id="friends-bar-right">
+						<form id="friend-search">
+							<input type="text" placeholder="Search for friends" name="name" id="friend-name" required>	
+						</form>
+					</div>
+				</div>
+				<div class="events-message" id="friends-message">
+					Use the search bar to find friends to volunteer with!
+				</div>
 			</div>
 			<div class="container" id="events-container">
 				<div class="events-message" id="empty-message">
-					You have no signed up for any events yet. Go to the map to explore volunteer opportunities!
+					You have not signed up for any events yet. Go to the map to explore volunteer opportunities!
 				</div>
 				<input type="radio" name="eventsTense" id="futureTense" class="tenseInput">
 				<input type="radio" name="eventsTense" id="everythingTense" class="tenseInput" checked>

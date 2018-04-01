@@ -1,3 +1,12 @@
+<?php
+
+  include("scripts/session.php");
+
+  if (!$success)
+    header('Location: /home.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -30,9 +39,9 @@
       <div id="sidebar-content" class="sidebar-content">
       <div class="sidebar-header">
         <div id="welcome" class="nav navbar-nav pull-right">
-          <a href="#" class="navbar-brand welcome-name">Welcome, <script>document.write(name);</script></a>
+          <a href="./dashboard.php" class="navbar-brand welcome-name">Welcome, <script>document.write(name);</script></a>
           <p class="navbar-brand welcome-name">&nbsp;&nbsp; | &nbsp;&nbsp;</p>
-          <a class="navbar-brand welcome-name" href="http://10.25.53.76/logout.php"><img src="./imgs/exit_black.png" width="22px" alt="logout" style="opacity: 0.4"></a>
+          <a class="navbar-brand welcome-name" href="./logout.php"><img src="./imgs/exit_black.png" width="22px" alt="logout" style="opacity: 0.4"></a>
         </div>
       </div>
 
