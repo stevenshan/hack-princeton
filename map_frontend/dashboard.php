@@ -2,7 +2,7 @@
   include("scripts/session.php");
   if (!$success)
   {
-    header("location:/");
+    header("location:/login.php");
   }
 
   include("scripts/config.php");
@@ -25,7 +25,8 @@
 	<body>
 		<header>
 		    Welcome <?php echo $row["name"]; ?>! 
-		    <a href="logout.php" title="Logout"><img id="dash-exit" src="imgs/exit_white.png" width="22px" alt="logout" style="opacity: 1"></a>
+		    <a href="index.php" title="Map"><img src="imgs/map.png" width="27px" id="map-exit"></a>
+		    <a href="logout.php" title="Logout"><img id="dash-exit" src="imgs/exit_white.png" width="22px" alt="logout"></a>
        	</header>
 		<main>
 			<div class="container" id="friends-container">
@@ -43,7 +44,7 @@
 			</div>
 			<div class="container" id="events-container">
 				<div class="events-message" id="empty-message">
-					You have no signed up for any events yet. Go to the map to explore volunteer opportunities!
+					You have not signed up for any events yet. Go to the map to explore volunteer opportunities!
 				</div>
 				<input type="radio" name="eventsTense" id="futureTense" class="tenseInput">
 				<input type="radio" name="eventsTense" id="everythingTense" class="tenseInput" checked>
