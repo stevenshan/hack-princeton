@@ -33,7 +33,7 @@
 		<main>
 			<div
 			  class="ldBar auto"
-			  data-stroke="data:ldbar/res,gradient(0,5,#f99,#ff9)"
+			  data-stroke="data:ldbar/res,gradient(0,1,#f99,#ff9)"
 			  data-stroke-width="30px"
 			  data-value="50"
 			  style="width:500px;height:30px;margin:20px auto;text-align: center;font-size:20px">  	
