@@ -1,5 +1,7 @@
 <?php
 
+	header("Access-Control-Allow-Origin: *");
+
 	// get name associated with user id
 
 	include("config.php");

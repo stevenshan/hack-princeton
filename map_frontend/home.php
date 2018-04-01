@@ -40,7 +40,7 @@
         <!--<h1 class="h3 mb-3 font-weight-normal">Login</h1>-->
       </div>
 
-      <div style='text-align:center'><font color="blue"><div class="huge">
+      <div style='text-align:center'><font color=#007bff><div class="huge">
 		HOME
      	     </div>
       </font>

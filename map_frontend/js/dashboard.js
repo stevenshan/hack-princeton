@@ -24,91 +24,80 @@ function formatDate(date) {
 	return monthNames[monthIndex] +  ' ' + day + ', ' + year;
 }
 
-$(function(){
-	httpGetAsync("scripts/get_org_data.php", function(e){
-		e = JSON.parse(e);
+function add_events(events, num_events, e)
+{
+	var elements = [];
+	var expected = events.length;
 
-		events = e["events"].split(",");
-		if (e["events"] == "")
-		{
-			events = [];
-		}
-		num_events = events.length;
+	today = new Date().setHours(0,0,0,0);
 
-		$(".event_count").html("(" + num_events + ")");
+	events.forEach(function(e){
+		httpGetAsync("scripts/get_event_data.php?id="+e, function(data){
+			expected -= 1;
+			data = JSON.parse(data);
+			content = JSON.parse(data["data"]);
 
-		var elements = [];
-		var expected = events.length;
+			date = new Date(data["date"]);
 
-		today = new Date().setHours(0,0,0,0);
+			if (content["start"] != "" && content["end"] != "")
+			{
+				optionalTimes = '<div class="event-desc">Starts at ' + 
+								content["start"] + ', Ends at ' + 
+								content["end"] + '</div>';
+			}
+			else if (content["start"] != "" && content["end"] == "")
+			{
+				optionalTimes = '<div class="event-desc">Starts at ' + 
+								content["start"] + '</div>';
+			}
+			else if (content["start"] == "" && content["end"] != "")
+			{
+				optionalTimes = '<div class="event-desc">Ends at ' + 
+								content["end"] + '</div>';
+			}
+			else
+			{
+				optionalTimes = "";
+			}
 
-		events.forEach(function(e){
-			httpGetAsync("scripts/get_event_data.php?id="+e, function(data){
-				expected -= 1;
-				data = JSON.parse(data);
-				content = JSON.parse(data["data"]);
+			if (content["description"] != "")
+			{
+				optionalDesc = '<div class="event-right">' + content["description"] + '</div>';
+			}
+			else
+			{
+				optionalDesc = "";
+			}
 
-				date = new Date(data["date"]);
+			if (date > today)
+			{
+				optionalTag = "event-future";
+			}
+			else
+			{
+				optionalTag = "event-past";
+			}
 
-				if (content["start"] != "" && content["end"] != "")
-				{
-					optionalTimes = '<div class="event-desc">Starts at ' + 
-									content["start"] + ', Ends at ' + 
-									content["end"] + '</div>';
-				}
-				else if (content["start"] != "" && content["end"] == "")
-				{
-					optionalTimes = '<div class="event-desc">Starts at ' + 
-									content["start"] + '</div>';
-				}
-				else if (content["start"] == "" && content["end"] != "")
-				{
-					optionalTimes = '<div class="event-desc">Ends at ' + 
-									content["end"] + '</div>';
-				}
-				else
-				{
-					optionalTimes = "";
-				}
+			element = '<label class="event ' + optionalTag + '"> \
+				<div class="event-name">' + data["name"] + '<span>' +
+				formatDate(date) + '</span></div>' + optionalTimes +  
+				optionalDesc + '<a href="edit_event.php?id=' + 
+				data["id"] + '"><div id="edit-event"></div></a></label>';
 
-				if (content["description"] != "")
-				{
-					optionalDesc = '<div class="event-right">' + content["description"] + '</div>';
-				}
-				else
-				{
-					optionalDesc = "";
-				}
+			index = 0;
+			while (index < elements.length && date < elements[index][0])
+			{
+				index += 1;
+			}
+			elements.splice(index, 0, [date, element]);
 
-				if (date > today)
-				{
-					optionalTag = "event-future";
-				}
-				else
-				{
-					optionalTag = "event-past";
-				}
-
-				element = '<label class="event ' + optionalTag + '"> \
-					<div class="event-name">' + data["name"] + '<span>' +
-					formatDate(date) + '</span></div>' + optionalTimes +  
-					optionalDesc + '<a href="edit_event.php?id=' + 
-					data["id"] + '"><div id="edit-event"></div></a></label>';
-
-				index = 0;
-				while (index < elements.length && date < elements[index][0])
-				{
-					index += 1;
-				}
-				elements.splice(index, 0, [date, element]);
-
-				if (expected == 0)
-				{
-					elements.forEach(function(e){
-						$("#events-container").append(e[1]);
-					});
-				}
-			});
+			if (expected == 0)
+			{
+				elements.forEach(function(e){
+					$("#events-container").append(e[1]);
+				});
+			}
 		});
 	});
-});
+
+}
