@@ -31,14 +31,20 @@ $(function(){
 		events = e["events"].split(",");
 		if (e["events"] == "")
 		{
-			events = []
+			events = [];
 		}
-		num_events = events.length
+		num_events = events.length;
 
-		$(".event_count").html("(" + num_events + ")")
+		$(".event_count").html("(" + num_events + ")");
+
+		var elements = [];
+		var expected = events.length;
+
+		today = new Date().setHours(0,0,0,0);
 
 		events.forEach(function(e){
 			httpGetAsync("scripts/get_event_data.php?id="+e, function(data){
+				expected -= 1;
 				data = JSON.parse(data);
 				content = JSON.parse(data["data"]);
 
@@ -74,13 +80,34 @@ $(function(){
 					optionalDesc = "";
 				}
 
-				element = '<label class="event"> \
+				if (date > today)
+				{
+					optionalTag = "event-future";
+				}
+				else
+				{
+					optionalTag = "event-past";
+				}
+
+				element = '<label class="event ' + optionalTag + '"> \
 					<div class="event-name">' + data["name"] + '<span>' +
 					formatDate(date) + '</span></div>' + optionalTimes +  
 					optionalDesc + '</label>';
-				console.log(content);
-				$("#events-container").append(element);
-			})
+
+				index = 0;
+				while (index < elements.length && date < elements[index][0])
+				{
+					index += 1;
+				}
+				elements.splice(index, 0, [date, element]);
+
+				if (expected == 0)
+				{
+					elements.forEach(function(e){
+						$("#events-container").append(e[1]);
+					});
+				}
+			});
 		});
 	});
 });
