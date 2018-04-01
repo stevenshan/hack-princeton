@@ -19,12 +19,13 @@
 	<head>
 		<title><?php echo $row["name"]; ?> Dashboard</title>
 		<link href="css/bootstrap.css" rel="stylesheet">
-		<link href="css/organization-dash.css" rel="stylesheet">
+		<link href="css/dashboard.css" rel="stylesheet">
+		<link href="css/user-dash.css" rel="stylesheet">
 	</head>
 	<body>
 		<header>
 		    Welcome <?php echo $row["name"]; ?>! 
-		    <a href="logout.php" title="Logout"><img style="vertical-align: middle; float: right" src="imgs/exit_white.png" width="22px" alt="logout" style="opacity: 1"></a>
+		    <a href="logout.php" title="Logout"><img id="dash-exit" src="imgs/exit_white.png" width="22px" alt="logout" style="opacity: 1"></a>
        	</header>
 		<main>
 			<div class="container">
