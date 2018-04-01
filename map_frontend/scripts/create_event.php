@@ -21,7 +21,8 @@
 
 		    $raw_data["start"] = mysqli_real_escape_string($db, $_POST["start"]);
 		    $raw_data["end"] = mysqli_real_escape_string($db, $_POST["end"]);
-		    $raw_data["description"] = mysqli_real_escape_string($db, $_POST["description"]);
+		    $desc = preg_replace("/\r\n|\n\r|\r|\n/", "\\n", $_POST["description"]);
+		    $raw_data["description"] = mysqli_real_escape_string($db, $desc);
 		    $raw_data["lat"] = mysqli_real_escape_string($db, $_POST["lat"]);
 		    $raw_data["long"] = mysqli_real_escape_string($db, $_POST["long"]);
 		    $raw_data["location"] = mysqli_real_escape_string($db, $_POST["location"]);
