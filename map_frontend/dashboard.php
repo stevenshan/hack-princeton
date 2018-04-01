@@ -21,8 +21,8 @@
 		<link href="css/bootstrap.css" rel="stylesheet">
 		<link href="css/dashboard.css" rel="stylesheet">
 		<link href="css/user-dash.css" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="loading-bar.css"/>
-		<script type="text/javascript" src="loading-bar.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/loading-bar.css"/>
+		<script type="text/javascript" src="js/loading-bar.js"></script>
 	</head>
 	<body>
 		<header>
