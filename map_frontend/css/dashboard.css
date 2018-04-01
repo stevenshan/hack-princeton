@@ -26,12 +26,17 @@ header {
 	position: relative;
 }
 
-#dash-exit {
+#dash-exit,
+#map-exit {
 	position: absolute;
 	right: 25px;
 	bottom: 0px;
 	top: 0px;
 	margin: auto;
+}
+
+#map-exit {
+	right: 70px;
 }
 
 .container {
