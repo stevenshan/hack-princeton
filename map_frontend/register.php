@@ -29,6 +29,7 @@
   </head>
 
   <body>
+    <div id="background"></div>
     <form class="form-signin" action="" method="post">
       <div class="text-center mb-4">
         <img class="mb-4" src="imgs/logo.svg" alt="" width="164" height="164">

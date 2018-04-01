@@ -16,37 +16,37 @@
     <link href="css/home.css" rel="stylesheet" type="text/css">    
 
     <style>
-    body  {
-       background-image: url("imgs/handsOnHands.jpg");
-       -webkit-background-size: cover;
-       -moz-background-size: cover;
-       -o-background-size: cover;
-       -background-size: cover;
+    div.huge{
+	font-size: 150px;
     }
     </style>
+   
+   <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Glegoo">
+    <style>
+      body {
+        font-family: 'Glegoo', serif;
+        font-size: 48px;
+      }
+    </style>
+
   </head>
 
   <body>
-        <div class="container demo-3">
-			<div class="content">
-                <div id="large-header" class="large-header">
-                    <canvas id="demo-canvas"></canvas>
-                    <h1 class="main-title">You can do it michelle</span></h1>
-                </div>
-            </div>
-	</div>
+	<div id="background"></div>
     <div class="form-signin">
       <div class="text-center mb-4">
         <img class="mb-4" src="imgs/logo.svg" alt="" width="256" height="256">
         <!--<h1 class="h3 mb-3 font-weight-normal">Login</h1>-->
       </div>
 
-      <div style='text-align:center'>
-	<big><big><big><big><big><big><big><big><big><big><big><big>
+      <div style='text-align:center'><font color="blue"><div class="huge">
 		HOME
-	</big></big></big></big></big></big></big></big></big></big></big></big>
+     	     </div>
+      </font>
       </div>
-      <p> </p>
+      <p> 
+      </p>
 
       <div id="outer">
         <div style='text-align:center'>
@@ -55,13 +55,8 @@
         </div>
       </div>
 
-	<script src="js/TweenLite.min.js"></script>
-        <script src="js/EasePack.min.js"></script>
-        <script src="js/rAF.js"></script>
-        <script src="js/demo-3.js"></script>
-
  <p> </p>
-      <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2018</p>
+      <p class="mt-5 mb-3 text-muted text-center"><font size="3">&copy; 2017-2018</font></p>
     </div>
   </body>
 </html>
