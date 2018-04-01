@@ -21,6 +21,8 @@
 		<link href="css/bootstrap.css" rel="stylesheet">
 		<link href="css/dashboard.css" rel="stylesheet">
 		<link href="css/user-dash.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="loading-bar.css"/>
+		<script type="text/javascript" src="loading-bar.js"></script>
 	</head>
 	<body>
 		<header>
@@ -29,6 +31,10 @@
 		    <a href="logout.php" title="Logout"><img id="dash-exit" src="imgs/exit_white.png" width="22px" alt="logout"></a>
        	</header>
 		<main>
+			<div
+			  class="ldBar"
+			  data-stroke="data:ldbar/res,gradient(0,1,#f99,#ff9)">  	
+			</div>
 			<div class="container" id="friends-container">
 				<div id="friends-bar">
 					<div id="friends-bar-left"></div>
