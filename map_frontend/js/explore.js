@@ -312,23 +312,23 @@ function initMap() {
           resp_temp = JSON.parse(resp);
           console.log(resp_temp["data"]);
           data_temp = JSON.parse(resp_temp["data"]);
+          var cat = data_temp["category"];
+
+          var event_mark = new google.maps.Marker({
+            position: {lat: parseFloat(data_temp["lat"]), lng: parseFloat(data_temp["long"])},
+            icon: icons[cat].icon,
+            map: map,
+            title: data_temp["name"]
+          });
+
+          event_mark.addListener('click', function() {
+            map.setZoom(15);
+            map.setCenter(event_mark.getPosition());
+            updateSidebar(event_id);
+          });
         }
       });
 
-      var cat = data_temp["category"];
-
-      var event_mark = new google.maps.Marker({
-        position: {lat: parseFloat(data_temp["lat"]), lng: parseFloat(data_temp["long"])},
-        icon: icons[cat].icon,
-        map: map,
-        title: data_temp["name"]
-      });
-
-      event_mark.addListener('click', function() {
-        map.setZoom(15);
-        map.setCenter(event_mark.getPosition());
-        updateSidebar(event_id);
-      });
 
     })();
 
