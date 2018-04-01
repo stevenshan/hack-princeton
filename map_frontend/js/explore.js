@@ -337,13 +337,13 @@ function initMap() {
 }
 
 function updateSidebar(event_id) {
-  var resp_temp;
+  var updated_resp_temp;
 
   $.ajax({
     async: false,
     url: "http://" + ip + "/scripts/get_event_data.php?id=" + event_id,
     success: function(resp) {
-      resp_temp = JSON.parse(resp);
+      updated_resp_temp = JSON.parse(resp);
     }
   });
 
@@ -351,8 +351,8 @@ function updateSidebar(event_id) {
   resetSignupButton();
   current_event_id = event_id;
 
-  let name = resp_temp["name"];
-  let org_id = resp_temp["organization"];
+  let name = updated_resp_temp["name"];
+  let org_id = updated_resp_temp["organization"];
   var org_name;
   $.ajax({
     async: false,
@@ -363,15 +363,15 @@ function updateSidebar(event_id) {
     }
   });
 
-  let date = resp_temp["date"];
-  let attendees = resp_temp["users"].split(",");
+  let date = updated_resp_temp["date"];
+  let attendees = updated_resp_temp["users"].split(",");
   console.log(attendees);
 
   if (attendees.indexOf(String(uid)) > -1) {
     alreadySignedUp();
   }
 
-  let raw_data = JSON.parse(resp_temp["data"]);
+  let raw_data = JSON.parse(updated_resp_temp["data"]);
   let lat = parseFloat(raw_data["lat"]);
   let lng = parseFloat(raw_data["long"]);
   let start = raw_data["start"];
