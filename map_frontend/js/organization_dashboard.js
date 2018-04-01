@@ -11,6 +11,6 @@ $(function(){
 
 		$(".event_count").html("(" + num_events + ")");
 
-		add_events(events, num_events, e);
+		add_events(events, num_events, e, function(){});
 	});
 });

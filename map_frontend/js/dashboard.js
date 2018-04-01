@@ -24,7 +24,7 @@ function formatDate(date) {
 	return monthNames[monthIndex] +  ' ' + day + ', ' + year;
 }
 
-function add_events(events, num_events, e)
+function add_events(events, num_events, e, f)
 {
 	var elements = [];
 	var expected = events.length;
@@ -82,7 +82,7 @@ function add_events(events, num_events, e)
 				<div class="event-name">' + data["name"] + '<span>' +
 				formatDate(date) + '</span></div>' + optionalTimes +  
 				optionalDesc + '<a href="edit_event.php?id=' + 
-				data["id"] + '"><div id="edit-event"></div></a></label>';
+				data["id"] + '" info="' + data["id"] + '" class="edit-event-button"><div id="edit-event"></div></a></label>';
 
 			index = 0;
 			while (index < elements.length && date < elements[index][0])
@@ -96,6 +96,7 @@ function add_events(events, num_events, e)
 				elements.forEach(function(e){
 					$("#events-container").append(e[1]);
 				});
+				f();
 			}
 		});
 	});

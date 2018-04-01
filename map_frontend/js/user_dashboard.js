@@ -56,9 +56,17 @@ $(function(){
 		$("#friends-bar-left").html(num_friends + " friends &nbsp; | &nbsp;" +
 									num_friend_requests + " friend requests");
 
-		add_events(events, num_events, e);
+		add_events(events, num_events, e, function(){
+			$(".edit-event-button").click(function(){
+				httpGetAsync("/scripts/drop_user_from_event.php?id=" + $(this).attr("info"), function(){
+					location.reload();
+				})
+				return false;
+			})
+		});
 
 	});
+
 });
 
 function faccept(id)
