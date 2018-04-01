@@ -364,7 +364,12 @@ function updateSidebar(event_id) {
   });
 
   let date = updated_resp_temp["date"];
-  let attendees = updated_resp_temp["users"].split(",");
+  let attendees = updated_resp_temp["users"];
+  if (attendees == "") {
+    attendees = [];
+  } else {
+    attendees = attendees.split(",");
+  }
   console.log(attendees);
 
   if (attendees.indexOf(String(uid)) > -1) {
