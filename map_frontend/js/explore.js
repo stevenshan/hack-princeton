@@ -327,7 +327,7 @@ function initMap() {
       event_mark.addListener('click', function() {
         map.setZoom(15);
         map.setCenter(event_mark.getPosition());
-        updateSidebar(resp_temp);
+        updateSidebar(event_id);
       });
 
     })();
@@ -336,10 +336,19 @@ function initMap() {
 
 }
 
-function updateSidebar(resp_temp) {
+function updateSidebar(event_id) {
+  var resp_temp;
+
+  $.ajax({
+    async: false,
+    url: "http://" + ip + "/scripts/get_event_data.php?id=" + event_id,
+    success: function(resp) {
+      resp_temp = JSON.parse(resp);
+    }
+  });
+
   $('#sidebar').removeClass('active');
   resetSignupButton();
-  let event_id = parseInt(resp_temp["id"]);
   current_event_id = event_id;
 
   let name = resp_temp["name"];
