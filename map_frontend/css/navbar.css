@@ -34,12 +34,16 @@
 
 }
 
+#sidebarCollapse img {
+    padding-top: 2px;
+}
+
 #sidebarCollapse {
   border-radius: 0;
   background-color: #fff;
   border-color: #00000000;
   border-width: 0;
-  box-shadow: -7px 0px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.4);
   z-index: 100;
 }
 
