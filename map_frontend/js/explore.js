@@ -378,6 +378,7 @@ function updateSidebar(event_id) {
 
   for (var a = 0; a < attendees.length; a++) {
     let attendee = attendees[a];
+    console.log(attendee);
     if (friends.indexOf(attendee) > -1) {
       $.ajax({
         async: false,
@@ -386,7 +387,7 @@ function updateSidebar(event_id) {
           let propic = "./imgs/user" + response + ".png";
           console.log(propic);
           $("#event-friends").append(
-            "<img src='" + propic + "' width='20px' style='margin: 3px'>"
+            "<img src='" + propic + "' width='40px' style='margin: 3px'>"
           );
         }
       });
