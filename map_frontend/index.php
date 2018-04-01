@@ -2,6 +2,9 @@
 
   include("scripts/session.php");
 
+  if (!$success)
+    header('Location: /home.php');
+
 ?>
 
 <!DOCTYPE html>
