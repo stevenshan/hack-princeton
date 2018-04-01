@@ -12,7 +12,6 @@
 	{
 		include("config.php");
 
-		$param = mysqli_real_escape_string($db, $_GET["param"]);
 		$id = mysqli_real_escape_string($db, $_GET["id"]);
 
 		$sql = "SELECT * FROM Events WHERE id='$id'";

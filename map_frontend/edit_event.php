@@ -4,10 +4,32 @@
   {
     header("location:/login_organization.php");
   }
-  include("scripts/create_event.php");
-  if ($success)
+  include("scripts/edit_event.php");
+  if ($success || !isset($_GET["id"]))
   {
     header("location:/organization_dashboard.php");
+  }
+  else
+  {
+    include("config.php");
+
+    $id = mysqli_real_escape_string($db, $_GET["id"]);
+
+    $sql = "SELECT * FROM Events WHERE id='$id'";
+    $result=mysqli_query($db, $sql);
+    $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+
+    $count=mysqli_num_rows($result);
+
+    if($count != 1)
+    {
+      header("location:/organization_dashboard.php");
+    }
+    else
+    {
+      $data = $row;
+      $content = json_decode($data["data"]);
+    }
   }
 ?>
 
@@ -19,7 +41,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Register Event</title>
+    <title>Edit Event</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -32,7 +54,7 @@
     <div id="background"></div>
     <form class="form-signin" action="" method="post" id="event_form">
       <div class="text-center mb-4">
-        <img class="mb-4" src="imgs\logo.svg" alt="" width="164" height="164">
+        <img class="mb-4" src="imgs/logo.svg" alt="" width="164" height="164">
         <!--<h1 class="h3 mb-3 font-weight-normal">Login</h1>-->
       </div>
 
@@ -46,41 +68,41 @@
       <?php
         }
       ?>
-      <div style='text-align:center'><a style="float: left; vertical-align: middle" href="organization_dashboard.php" title="Back to Dashboard"><img width="30" src="imgs/back.svg"></a><h4> ADD AN EVENT</h4></div>
+      <div style='text-align:center'><a style="float: left; vertical-align: middle" href="organization_dashboard.php" title="Back to Dashboard"><img width="30" src="imgs/back.svg"></a><h4> EDIT THIS EVENT</h4></div>
       <p> </p>
       <div class="form-label-group">
-        <input type="text" name="name" id="inputName" class="form-control" placeholder="Name" required autofocus>
+        <input type="text" name="name" id="inputName" class="form-control" placeholder="Name" value="<?php echo $data["name"] ?>" required autofocus>
         <label for="inputName">Name</label>
       </div>
 
       <div class="form-label-group">
-        <input type="date" name="date" id="inputDate" class="form-control" placeholder="Password" required>
+        <input type="date" name="date" id="inputDate" class="form-control" placeholder="Password" value="<?php echo $data["date"] ?>" required>
         <label for="inputDate">Date</label>
       </div>
 
       <div class="form-label-group">
-        <input type="time" name="start" id="inputStart" class="form-control" placeholder="Start Time">
+        <input type="time" name="start" id="inputStart" class="form-control" placeholder="Start Time" value="<?php echo $content->start; ?>">
         <label for="inputStart">Start Time</label>
       </div>
 
       <div class="form-label-group">
-        <input type="time" name="end" id="inputEnd" class="form-control" placeholder="End Time">
+        <input type="time" name="end" id="inputEnd" class="form-control" placeholder="End Time" value="<?php echo $content->end; ?>">
         <label for="inputEnd">End Time</label>
       </div>
 
       <div class="form-label-group">
-        <textarea class="form-control" id="inputDesc" placeholder="Description" name="description"></textarea>
+        <textarea class="form-control" id="inputDesc" placeholder="Description" name="description"> <?php echo $content->description; ?></textarea>
       </div>
 
       <div class="form-label-group">
-        <input type="text" name="location" id="inputLocation" class="form-control" placeholder="Location" required>
+        <input type="text" name="location" id="inputLocation" class="form-control" placeholder="Location" required value="<?php echo $content->location; ?>">
         <label for="inputLocation">Location</label>
       </div>
 
       <input type="hidden" name="lat" id="latinput" value="0.0">
       <input type="hidden" name="long" id="longinput" value="0.0">
 
-      <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="return check_reg()">Create Event</button>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="return check_reg()">Save Changes</button>
       <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2018</p>
     </form>
 
