@@ -164,7 +164,7 @@ function initMap() {
   var icons = {
     ANI: {
       icon: {
-        url: './icons/015-animals.png',
+        url: './imgs/015-animals.png',
         size: new google.maps.Size(71,71),
         origin: new google.maps.Point(0,0),
         anchor: new google.maps.Point(17,34),
@@ -173,7 +173,7 @@ function initMap() {
     },
     ENV: {
       icon: {
-        url: './icons/013-plant.png',
+        url: './imgs/013-plant.png',
         size: new google.maps.Size(71,71),
         origin: new google.maps.Point(0,0),
         anchor: new google.maps.Point(17,34),
@@ -182,7 +182,7 @@ function initMap() {
     },
     EDU: {
       icon: {
-        url: './icons/007-books.png',
+        url: './imgs/007-books.png',
         size: new google.maps.Size(71,71),
         origin: new google.maps.Point(0,0),
         anchor: new google.maps.Point(17,34),
@@ -191,7 +191,7 @@ function initMap() {
     },
     CPU: {
       icon: {
-        url: './icons/009-imac.png',
+        url: './imgs/009-imac.png',
         size: new google.maps.Size(71,71),
         origin: new google.maps.Point(0,0),
         anchor: new google.maps.Point(17,34),
@@ -200,7 +200,7 @@ function initMap() {
     },
     MED: {
       icon: {
-        url: './icons/012-medical.png',
+        url: './imgs/012-medical.png',
         size: new google.maps.Size(71,71),
         origin: new google.maps.Point(0,0),
         anchor: new google.maps.Point(17,34),
@@ -209,7 +209,7 @@ function initMap() {
     },
     HOM: {
       icon: {
-        url: './icons/006-real-estate.png',
+        url: './imgs/006-real-estate.png',
         size: new google.maps.Size(71,71),
         origin: new google.maps.Point(0,0),
         anchor: new google.maps.Point(17,34),
@@ -218,7 +218,7 @@ function initMap() {
     },
     CHD: {
       icon: {
-        url: './icons/003-teddy-bear.png',
+        url: './imgs/003-teddy-bear.png',
         size: new google.maps.Size(71,71),
         origin: new google.maps.Point(0,0),
         anchor: new google.maps.Point(17,34),
@@ -395,3 +395,11 @@ $(document).ready(function () {
     });
 
 });
+
+function signUp(event_id){
+  $("")
+}
+
+
+
+
