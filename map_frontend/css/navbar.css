@@ -6,7 +6,7 @@
 #sidebar {
     min-width: 420px;
     max-width: 420px;
-    min-height: 100vh;
+    height: 100vh;
     position: fixed;
     top: 0;
     right: 0;
@@ -55,4 +55,9 @@
 button#sidebarCollapse {
     width: 100%;
     padding: 0;
+}
+
+.sidebar-content {
+  height: 100vh;
+  overflow-y: scroll;
 }
