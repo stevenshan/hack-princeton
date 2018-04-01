@@ -26,24 +26,21 @@
 	</head>
 	<body>
 		<header>
-		    Welcome <?php echo $row["name"]; ?>! 
+		    Welcome <?php echo $row["name"]; ?>!
 		    <a href="index.php" title="Map"><img src="imgs/map.png" width="27px" id="map-exit"></a>
 		    <a href="logout.php" title="Logout"><img id="dash-exit" src="imgs/exit_white.png" width="22px" alt="logout"></a>
        	</header>
 		<main>
-			<div
-			  class="ldBar"
-			  data-stroke="data:ldbar/res,gradient(0,1,#f99,#ff9)"
-			  data-value="50"
-			  style="display: inline-block; width:500px; height:30px; margin:20px auto;text-align: center;font-size:20px">  	
-			</div>
+      <div class="progress">
+        <div id="progress-bar" class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
 
 			<div class="container" id="friends-container">
 				<div id="friends-bar">
 					<div id="friends-bar-left"></div>
 					<div id="friends-bar-right">
 						<form id="friend-search">
-							<input type="text" placeholder="Search for friends" name="name" id="friend-name" required>	
+							<input type="text" placeholder="Search for friends" name="name" id="friend-name" required>
 						</form>
 					</div>
 				</div>

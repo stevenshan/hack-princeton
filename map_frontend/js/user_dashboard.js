@@ -1,6 +1,13 @@
+
 $(function(){
 	httpGetAsync("scripts/get_user_data.php", function(e){
 		e = JSON.parse(e);
+
+		hours = parseInt(e["hours"]);
+		goal = parseInt(e["goal"]);
+
+		$("#progress-bar").css("width", String(hours / goal * 100) + "%");
+		$("#progress-bar").html(String(hours / goal * 100) + "%");
 
 		thumbnail_url="/imgs/user" + e["thumbnail"] + ".png";
 		$("header").prepend("<img id=\"thumbnailimg\" src=\"" + thumbnail_url + "\">");
@@ -38,7 +45,7 @@ $(function(){
 			httpGetAsync("/scripts/get_name.php?id=" + n, function(data){
 				if (e.charAt(0) == "#")
 				{
-					msg = '<div class="friend">' + data + 
+					msg = '<div class="friend">' + data +
 						'<div class="friend-choice"><div class="choice-accept" onclick="faccept(' + n + ')"></div><div class="choice-reject" onclick="freject(' + n + ')"></div></div> \
 					</div>';
 				}
@@ -72,14 +79,14 @@ $(function(){
 function faccept(id)
 {
 	httpGetAsync("/scripts/confirm_friend.php?reject=false&friend=" + id, function(e){
-		location.reload(); 
+		location.reload();
 	});
 }
 
 function freject(id)
 {
 	httpGetAsync("/scripts/confirm_friend.php?reject=true&friend=" + id, function(e){
-		location.reload(); 
+		location.reload();
 	});
 }
 

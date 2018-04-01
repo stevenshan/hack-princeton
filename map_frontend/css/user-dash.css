@@ -73,11 +73,11 @@
 .friend-choice {
 	display: block;
 	position: absolute;
-	width: 425px;	
+	width: 425px;
 	left: 0px;
 	right: 0px;
 	top: 0px;
-	bottom: 0px;	
+	bottom: 0px;
 	margin: auto;
 }
 
@@ -104,4 +104,11 @@
 
 #edit-event {
 	background-image: url("../imgs/reject.png");
+}
+
+.progress {
+	width: 75%;
+	height: 20px;
+	border-radius: 2px;
+	margin: 0 auto;
 }
