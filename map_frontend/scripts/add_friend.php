@@ -1,6 +1,6 @@
 <?php
 	include("session.php");
-	if (!$success && isset($_GET["query"]))
+	if (!$success || !isset($_GET["query"]))
 	{
 		echo "-1";
 	}
