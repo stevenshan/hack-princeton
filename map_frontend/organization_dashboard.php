@@ -27,9 +27,6 @@
 		    <a href="logout.php" title="Logout of organization account"><img id="dash-exit" src="imgs/exit_white.png" width="22px" alt="logout" style="opacity: 1"></a>
        	</header>
 		<main>
-			<div class="container">
-				t 1	
-			</div>
 			<div class="container" id="events-container">
 				<div class="events-message" id="empty-message">
 					Your organization does not have any events. Click on "New Event" button to create a new one.
