@@ -99,6 +99,16 @@
         <label for="inputLocation">Location</label>
       </div>
 
+      <select name="tag" required style="margin-bottom: 15px">
+        <option value="ANI" <?php if ($content->category == "ANI") echo "selected";?>>Animals</option>
+        <option value="ENV" <?php if ($content->category == "ENV") echo "selected";?>>Environments</option>
+        <option value="EDU" <?php if ($content->category == "EDU") echo "selected";?>>Education and Literacy</option>
+        <option value="CPU" <?php if ($content->category == "CPU") echo "selected";?>>Computers and Technology</option>
+        <option value="MED" <?php if ($content->category == "MED") echo "selected";?>>Health and Medicine</option>
+        <option value="HOM" <?php if ($content->category == "HOM") echo "selected";?>>Homeless and Housing</option>
+        <option value="CHD" <?php if ($content->category == "CHD") echo "selected";?>>Children and Youth</option>
+      </select>
+
       <input type="hidden" name="lat" id="latinput" value="0.0">
       <input type="hidden" name="long" id="longinput" value="0.0">
       <input type="hidden" name="id" value="<?php echo $id; ?>">

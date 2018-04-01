@@ -77,6 +77,16 @@
         <label for="inputLocation">Location</label>
       </div>
 
+      <select name="tag" required style="margin-bottom: 15px">
+        <option value="ANI">Animals</option>
+        <option value="ENV">Environments</option>
+        <option value="EDU">Education and Literacy</option>
+        <option value="CPU">Computers and Technology</option>
+        <option value="MED">Health and Medicine</option>
+        <option value="HOM">Homeless and Housing</option>
+        <option value="CHD">Children and Youth</option>
+      </select>
+
       <input type="hidden" name="lat" id="latinput" value="0.0">
       <input type="hidden" name="long" id="longinput" value="0.0">
 

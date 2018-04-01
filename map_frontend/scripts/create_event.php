@@ -25,6 +25,7 @@
 		    $raw_data["lat"] = mysqli_real_escape_string($db, $_POST["lat"]);
 		    $raw_data["long"] = mysqli_real_escape_string($db, $_POST["long"]);
 		    $raw_data["location"] = mysqli_real_escape_string($db, $_POST["location"]);
+		    $raw_data["category"] = mysqli_real_escape_string($db, $_POST["tag"]);
 		    $raw_data=json_encode($raw_data);
 		    $data=mysqli_real_escape_string($db, $raw_data);
 
