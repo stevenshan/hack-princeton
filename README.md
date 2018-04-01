@@ -1,6 +1,6 @@
 # HackPrinceton Spring 2018
 # Reach Out
-Check us out [here]()!
+Check us out [here](http://hack.stevenshan.com/home.php)!
 
 # Inspiration
 Two members of our team recently joined a service fraternity. In the process, we met an incredible group of friends and discovered great opportunities to give back to the community. We also saw that one of the biggest challenges in volunteering is bridging the gap between organizations and volunteers, and building a community joining volunteers together. We hope that everyone has a platform to easily connect to the community around them and like-minded people who also want to contribute. Service and volunteering is not only a way to help others but also to gain exposure and have fun!
