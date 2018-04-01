@@ -31,7 +31,7 @@
     <nav id="sidebar">
       <div id="dismiss">
         <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
-          <img src="./imgs/sandwich.png" width="32px">
+          <img src="./imgs/menu.png" width="40px">
         </button>
       </div>
 

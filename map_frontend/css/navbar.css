@@ -22,13 +22,13 @@
 }
 
 #dismiss {
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     position: absolute;
     /* top right corner of the sidebar */
     top: 10px;
     left: 10px;
-    margin-left: -45px;
+    margin-left: -50px;
     margin-top: -24px;
     padding: 0;
 
@@ -36,6 +36,7 @@
 
 #sidebarCollapse img {
     padding-top: 2px;
+    z-index: 1000;
 }
 
 #sidebarCollapse {
