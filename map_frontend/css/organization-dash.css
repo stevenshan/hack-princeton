@@ -51,8 +51,7 @@ header {
 	vertical-align: middle;
 	font-size: 12px;
 	color: white;
-	background: #28a745;
-	background-image: linear-gradient(-180deg, #34d058 0%, #28a745 90%);
+	background: #34d058;
 	border-radius: 5px;
 	padding: 3px;
 	padding-left: 7px;
@@ -63,7 +62,7 @@ header {
 }
 
 .container h3 a:hover {
-	background-image: linear-gradient(-180deg, #28a745 0%, #34d058 90%);
+	background: #28a745;
 }
 
 .container h3 span {
@@ -100,11 +99,6 @@ header {
 	padding-bottom: 20px;
 }
 
-.event:last-child {
-	border-bottom: 0px;
-	padding-bottom: 0px;
-}
-
 .event h4 {
 	font-size: 20px;
 	min-height: 25px;
@@ -127,3 +121,40 @@ header {
 	max-height:100px;
 	overflow: hidden;
 }
+
+.tenseInput {
+	display: none;
+}
+
+.tenseSelect {
+	font-size: 13px;
+	border: 1px solid #f0a000;
+	padding: 0px;
+	margin: 0px;
+	float: right;
+
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 12px;
+	background: #f0a000;
+	padding: 3px 10px;
+	font-weight: bold;
+	margin-top: -4px;
+	text-decoration: none;
+	cursor: pointer;
+	background: transparent;
+	color: black;
+}
+
+#futureTense:checked ~ h3 #futureSelect { background: #f0a000; }
+#everythingTense:checked ~ h3 #everythingSelect { background: #f0a000; }
+#pastTense:checked ~ h3 #pastSelect { background: #f0a000; }
+
+#futureSelect { border-radius: 0px 5px 5px 0px; margin-right: 20px; }
+#everythingSelect {border-width: 1px 0px;}
+#pastSelect { border-radius: 5px 0px 0px 5px; }
+
+.event { display: none; }
+#futureTense:checked ~ .event-future { display: block; }
+#everythingTense:checked ~ .event {display: block;}
+#pastTense:checked ~ .event-past { display: block; }

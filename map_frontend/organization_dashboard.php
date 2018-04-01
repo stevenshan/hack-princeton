@@ -34,7 +34,15 @@
 				<div class="events-message" id="empty-message">
 					Your organization does not have any events. Click on "New Event" button to create a new one.
 				</div>
-				<h3>Events <span class="event_count">()</span><a href="register_event.php">New Event <img src="imgs/add_white.svg" width="20"></a></h3>
+				<input type="radio" name="eventsTense" id="futureTense" class="tenseInput">
+				<input type="radio" name="eventsTense" id="everythingTense" class="tenseInput" checked>
+				<input type="radio" name="eventsTense" id="pastTense" class="tenseInput">
+				<h3>Events <span class="event_count">()</span>
+					<a href="register_event.php">New Event <img src="imgs/add_white.svg" width="20"></a>
+					<label for="futureTense" class="tenseSelect" id="futureSelect">Future</label>
+					<label for="everythingTense" class="tenseSelect" id="everythingSelect">All</label>
+					<label for="pastTense" class="tenseSelect" id="pastSelect">Past</label>
+				</h3>
 			</div>
 		</main>
 
