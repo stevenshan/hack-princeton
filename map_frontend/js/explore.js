@@ -384,6 +384,7 @@ function updateSidebar(event_id) {
         url: "/scripts/get_user_data.php?id=" + attendee + "&param=thumbnail",
         success: function(response) {
           let propic = "./imgs/user" + response + ".png";
+          console.log(propic);
           $("#event-friends").append(
             "<img src='" + propic + "' width='20px' style='margin: 3px'>"
           );
