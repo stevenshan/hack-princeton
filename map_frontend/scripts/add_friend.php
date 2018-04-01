@@ -22,6 +22,10 @@
         {
         	echo "No users found";
         }
+        else if ($row["id"] == $userid)
+        {
+                echo "Can't friend yourself";
+        }
         else
         {
         	$friends=explode(",", $row["friends"]);
