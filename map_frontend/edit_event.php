@@ -21,7 +21,7 @@
 
     $count=mysqli_num_rows($result);
 
-    if($count != 1)
+    if($count != 1 || $row["organization"] != $_SESSION["org_user"])
     {
       header("location:/organization_dashboard.php");
     }
@@ -101,6 +101,7 @@
 
       <input type="hidden" name="lat" id="latinput" value="0.0">
       <input type="hidden" name="long" id="longinput" value="0.0">
+      <input type="hidden" name="id" value="<?php echo $id; ?>">
 
       <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="return check_reg()">Save Changes</button>
       <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2018</p>
