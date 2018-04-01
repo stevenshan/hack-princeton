@@ -1,15 +1,6 @@
 var current_event_id = -1;
-var uid = -1;
 
 function initMap() {
-
-  $.ajax({
-    async: false,
-    url: "http://10.25.53.76/scripts/get_user_id.php",
-    success: function(response) {
-      uid = parseInt(response);
-    }
-  });
 
   var princeton = {lat: 40.3474393, lng: -74.657609};
   // Note: This example requires that you consent to location sharing when
@@ -300,7 +291,7 @@ function initMap() {
 
   $.ajax({
     async: false,
-    url: "http://10.25.53.76/scripts/get_all_events.php",
+    url: "http://" + ip + "/scripts/get_all_events.php",
     success: function(data) {
       event_ids = data.split(",");
     },
@@ -316,7 +307,7 @@ function initMap() {
       var data_temp;
       $.ajax({
         async: false,
-        url: "http://10.25.53.76/scripts/get_event_data.php?id=" + event_id,
+        url: "http://" + ip + "/scripts/get_event_data.php?id=" + event_id,
         success: function(resp) {
           resp_temp = JSON.parse(resp);
           console.log(resp_temp["data"]);
@@ -347,6 +338,7 @@ function initMap() {
 
 function updateSidebar(resp_temp) {
   $('#sidebar').removeClass('active');
+  resetSignupButton();
   let event_id = parseInt(resp_temp["id"]);
   current_event_id = event_id;
 
@@ -355,7 +347,7 @@ function updateSidebar(resp_temp) {
   var org_name;
   $.ajax({
     async: false,
-    url: "http://10.25.53.76/scripts/get_org_data.php?id=" + org_id,
+    url: "http://" + ip + "/scripts/get_org_data.php?id=" + org_id,
     success: function(response) {
       org_info = JSON.parse(response);
       org_name = org_info["name"];
@@ -364,6 +356,10 @@ function updateSidebar(resp_temp) {
 
   let date = resp_temp["date"];
   let attendees = resp_temp["users"].split(",");
+
+  if (attendees.indexOf(String(uid)) > -1) {
+    alreadySignedUp();
+  }
 
   let raw_data = JSON.parse(resp_temp["data"]);
   let lat = parseFloat(raw_data["lat"]);
@@ -403,20 +399,34 @@ function codeLatLng(lat, lng) {
 $(document).ready(function () {
   // when opening the sidebar
   $('#sidebarCollapse').on('click', function () {
-      // open sidebar
-      $('#sidebar').toggleClass('active');
+    // open sidebar
+    $('#sidebar').toggleClass('active');
   });
 
   $("#signup-button").on('click', function () {
     if (current_event_id < 0) return;
+
     $.ajax({
       async: false,
-      url: "http://10.25.53.76/scripts/sign_up.php?id=" + current_event_id,
+      url: "http://" + ip + "/scripts/signup.php?id=" + current_event_id,
       success: function(response) {
-
+        alreadySignedUp();
       }
     });
-  })
-
+  });
 
 });
+
+function alreadySignedUp() {
+  $("#signup-button-button").attr("disabled", "disabled");
+  $("#signup-button-button").removeClass("btn-primary");
+  $("#signup-button-button").addClass("btn-success");
+  $("#signup-button-button").html("Signed up!");
+}
+
+function resetSignupButton() {
+  $("#signup-button-button").removeAttr("disabled");
+  $("#signup-button-button").addClass("btn-primary");
+  $("#signup-button-button").removeClass("btn-success");
+  $("#signup-button-button").html("Sign up");
+}
