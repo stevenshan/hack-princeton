@@ -25,7 +25,7 @@
 	<body>
 		<header>
 		    Welcome <?php echo $row["name"]; ?>! 
-		    <a href="index.hmtl" title="Map"><img src="imgs/map.png" width="22px" style="opacity: 1"></a>
+		    <a href="index.php" title="Map"><img src="imgs/map.png" width="22px" style="opacity: 1"></a>
 		    <a href="logout.php" title="Logout"><img id="dash-exit" src="imgs/exit_white.png" width="22px" alt="logout" style="opacity: 1"></a>
        	</header>
 		<main>
