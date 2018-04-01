@@ -24,6 +24,26 @@ function formatDate(date) {
 	return monthNames[monthIndex] +  ' ' + day + ', ' + year;
 }
 
+function date_comparator(x, y, today)
+{
+	if (x <= today && y <= today)
+	{
+ 		return x < y
+	}
+	else if (x > today  && y > today)
+	{
+		return x > y
+	}
+	else if (x > today)
+	{
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+}
+
 function add_events(events, num_events, e, f)
 {
 	var elements = [];
@@ -85,7 +105,7 @@ function add_events(events, num_events, e, f)
 				data["id"] + '" info="' + data["id"] + '" class="edit-event-button"><div id="edit-event"></div></a></label>';
 
 			index = 0;
-			while (index < elements.length && date < elements[index][0])
+			while (index < elements.length && date_comparator(date, elements[index][0], today))
 			{
 				index += 1;
 			}
