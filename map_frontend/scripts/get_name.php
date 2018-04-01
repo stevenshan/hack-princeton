@@ -8,7 +8,7 @@
 
 	if (!isset($_GET["id"]))
 	{
-		echo "-1";
+		echo "Guest";
 	}
 	else
 	{
@@ -23,7 +23,7 @@
 
 		if($count != 1)
 		{
-			echo "-1";
+			echo "Guest";
 		}
 		else
 		{
