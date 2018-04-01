@@ -38,7 +38,7 @@
 				<input type="radio" name="eventsTense" id="everythingTense" class="tenseInput" checked>
 				<input type="radio" name="eventsTense" id="pastTense" class="tenseInput">
 				<h3>Events <span class="event_count">()</span>
-					<a href="register_event.php">New Event <img src="imgs/add_white.svg" width="20"></a>
+					<a href="register_event.php" id="newEventButton">New Event <img src="imgs/add_white.svg" width="20"></a>
 					<label for="futureTense" class="tenseSelect" id="futureSelect">Future</label>
 					<label for="everythingTense" class="tenseSelect" id="everythingSelect">All</label>
 					<label for="pastTense" class="tenseSelect" id="pastSelect">Past</label>

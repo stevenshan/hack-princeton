@@ -155,7 +155,7 @@ header {
 #everythingTense:checked ~ h3 #everythingSelect { background: #f0a000; }
 #pastTense:checked ~ h3 #pastSelect { background: #f0a000; }
 
-#futureSelect { border-radius: 0px 5px 5px 0px; margin-right: 20px; }
+#futureSelect { border-radius: 0px 5px 5px 0px; }
 #everythingSelect {border-width: 1px 0px;}
 #pastSelect { border-radius: 5px 0px 0px 5px; }
 
@@ -182,4 +182,8 @@ header {
 
 #edit-event:hover {
 	opacity: 1;
+}
+
+#newEventButton {
+	margin-left: 20px;
 }
