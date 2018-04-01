@@ -12,6 +12,7 @@
     right: 0;
     /* top layer */
     z-index: 9999;
+    transition: all 0.3s;
 }
 
 #sidebar.active {
@@ -24,5 +25,5 @@
     position: absolute;
     /* top right corner of the sidebar */
     top: 10px;
-    right: 10px;
+    left: 10px;
 }

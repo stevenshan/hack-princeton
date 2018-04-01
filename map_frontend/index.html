@@ -15,27 +15,20 @@
 
 <body>
   <!-- NAVIGATION/SIDEBAR -->
-  <nav class="navbar navbar-default navbar-fixed-right">
-    <div class="wrapper">
-      
-      <nav id="sidebar">
+  <div class="wrapper">
 
-          <div class="sidebar-header">
-            <div id="welcome" class="nav navbar-nav pull-right">
+    <nav id="sidebar">
+      <div class="sidebar-header">
+        <div id="welcome" class="nav navbar-nav pull-right">
+          <a href="#" class="navbar-brand welcome-name">Welcome, USERNAME</a>
+          <p class="navbar-brand welcome-name">&nbsp;&nbsp; | &nbsp;&nbsp;</p>
+          <a class="navbar-brand welcome-name" href="#"><img src="./imgs/exit_black.png" width="22px" alt="logout" style="opacity: 0.4"></a>
+        </div>
+      </div>
 
-              <a href="#" class="navbar-brand welcome-name">Welcome, USERNAME</a>
-              <p class="navbar-brand welcome-name">&nbsp;&nbsp; | &nbsp;&nbsp;</p>
-              <a class="navbar-brand welcome-name" href="#"><img src="./imgs/exit_black.png" width="22px" alt="logout" style="opacity: 0.4"></a>
-            </div>
-          </div>
-
-          <ul class="list-unstyled components">
-
-          </ul>
-
+      <ul class="list-unstyled components">
 
         <li>
-
           <div id="infobox" class="">
             <h1 id="event-title" class="event-title"></h1>
             <hr id="event-divider"/>
@@ -44,10 +37,9 @@
             </div>
 
             <table id="event-table" class="event-info">
-
               <tr>
                 <td>
-                  <b>Organization<b>
+                  <b>Organization</b>
                 </td>
                 <td id="event-org" class="event-info">
                   &nbsp;
@@ -56,7 +48,7 @@
 
               <tr>
                 <td>
-                  <b>Description<b>
+                  <b>Description</b>
                 </td>
                 <td id="event-description" class="event-info">
                   &nbsp;
@@ -65,7 +57,7 @@
 
               <tr>
                 <td>
-                  <b>Location<b>
+                  <b>Location</b>
                 </td>
                 <td id="event-loc" class="event-info">
                   &nbsp;
@@ -74,7 +66,7 @@
 
               <tr>
                 <td>
-                  <b>Date<b>
+                  <b>Date</b>
                 </td>
                 <td id="event-date" class="event-info">
                   &nbsp;
@@ -83,7 +75,7 @@
 
               <tr>
                 <td>
-                  <b>Start Time<b>
+                  <b>Start Time</b>
                 </td>
                 <td id="event-start" class="event-info">
                   &nbsp;
@@ -92,7 +84,7 @@
 
               <tr>
                 <td>
-                  <b>End Time<b>
+                  <b>End Time</b>
                 </td>
                 <td id="event-end" class="event-info">
                   &nbsp;
@@ -101,7 +93,7 @@
 
               <tr>
                 <td>
-                  <b>No. of Volunteers<b>
+                  <b>No. of Volunteers</b>
                 </td>
                 <td id="num-people" class="event-info">
                   &nbsp;
@@ -110,33 +102,35 @@
             </table>
           </div>
         </li>
+      </ul>
 
       <div id="navbar-footer" class="navbar-header">
         <a class="navbar-brand centered-header" href="#">HackPrinceton Spring 2018</a>
       </div>
 
 
-    </div> <!-- /wrapper -->
-  </nav>
+    </nav>
+  </div> <!-- /wrapper -->
 
-
-  <div id="dismiss">
-    <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
-      <i class="glyphicon glyphicon-align-right"></i>
-    </button>
-  </div>
 
   <main>
     <div class="container" style="width: 100%; height: 100%; position: absolute; padding: 0; margin-left: 0px;">
-     <input id="pac-input" class="controls" type="text" placeholder="Search for places...">
-     <div id="map"></div>
-   </div>
-
+      <input id="pac-input" class="controls" type="text" placeholder="Search for places...">
+      <div id="map"></div>
+    </div>
 
     <script type="text/javascript" src="./js/explore.js"></script>
     <!-- API key: AIzaSyA4oufZ_wBBWQlZzWrNQ5SeQ2HmSvsuKbo -->
     <!-- &callback= -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4oufZ_wBBWQlZzWrNQ5SeQ2HmSvsuKbo&libraries=places&callback=initMap"></script>
+
+    <div id="dismiss">
+      <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+        Collapse
+      </button>
+    </div>
+  </div>
+
   </main>
 
 </body>
