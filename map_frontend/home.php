@@ -15,6 +15,12 @@
   <link href="css/floating-labels.css" rel="stylesheet">
 
   <link href="https://fonts.googleapis.com/css?family=Yantramanav:100" rel="stylesheet">
+  <style>
+  body {
+    font-family: 'Yantramanav', sans-serif;
+    font-size: 48px;
+  }
+  </style>
 
   <link href="css/home.css" rel="stylesheet" type="text/css">
 </head>
