@@ -2,7 +2,8 @@
 
 	header("Access-Control-Allow-Origin: *");
 	
-	session_start();
+	include("session.php");
+	
 	if ($success)
 	{
 		echo $_SESSION["login_user"];
