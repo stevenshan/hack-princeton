@@ -107,3 +107,10 @@ html, body {
 .navbar-header {
   background-color: #fff;
 }
+
+#signup-button {
+  display: inline-block;
+  width: 100%;
+  margin: 3px auto;
+  text-align: center;
+}
