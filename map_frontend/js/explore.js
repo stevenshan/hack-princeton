@@ -327,6 +327,7 @@ function initMap() {
       event_mark.addListener('click', function() {
         map.setZoom(15);
         map.setCenter(event_mark.getPosition());
+        event_responses[event_id] = resp_temp;
         updateSidebar(resp_temp);
       });
 
@@ -356,6 +357,7 @@ function updateSidebar(resp_temp) {
 
   let date = resp_temp["date"];
   let attendees = resp_temp["users"].split(",");
+  console.log(attendees);
 
   if (attendees.indexOf(String(uid)) > -1) {
     alreadySignedUp();
