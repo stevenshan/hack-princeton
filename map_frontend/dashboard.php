@@ -34,7 +34,9 @@
 			<div
 			  class="ldBar"
 			  data-stroke="data:ldbar/res,gradient(0,1,#f99,#ff9)"
-			  data-value="50">  	
+			  data-stroke-width="30px"
+			  data-value="50"
+			  style="width: 100%; height: 100px; padding: 0; margin: 0 auto">  	
 			</div>
 			<div class="container" id="friends-container">
 				<div id="friends-bar">
