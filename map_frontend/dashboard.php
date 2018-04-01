@@ -28,8 +28,18 @@
 		    <a href="logout.php" title="Logout"><img id="dash-exit" src="imgs/exit_white.png" width="22px" alt="logout" style="opacity: 1"></a>
        	</header>
 		<main>
-			<div class="container">
-				t 1	
+			<div class="container" id="friends-container">
+				<div id="friends-bar">
+					<div id="friends-bar-left"></div>
+					<div id="friends-bar-right">
+						<form id="friend-search">
+							<input type="text" placeholder="Search for friends" name="name" id="friend-name">	
+						</form>
+					</div>
+				</div>
+				<div class="events-message" id="friends-message">
+					Use the search bar to find friends to volunteer with!
+				</div>
 			</div>
 			<div class="container" id="events-container">
 				<div class="events-message" id="empty-message">

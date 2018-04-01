@@ -10,9 +10,20 @@ $(function(){
 		{
 			events = [];
 		}
+
+		friends = e["friends"].split(",");
+		if (e["friends"] == "")
+		{
+			friends = [];
+		}
+
 		num_events = events.length;
+		num_friends = friends.length;
 
 		$(".event_count").html("(" + num_events + ")");
+
+
+		$("#friends-bar-left").html(num_friends + " friends");
 
 		add_events(events, num_events, e);
 	});
