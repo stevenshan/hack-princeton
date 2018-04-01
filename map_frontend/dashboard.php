@@ -2,7 +2,7 @@
   include("scripts/session.php");
   if (!$success)
   {
-    header("location:/");
+    header("location:/login.php");
   }
 
   include("scripts/config.php");
@@ -44,7 +44,7 @@
 			</div>
 			<div class="container" id="events-container">
 				<div class="events-message" id="empty-message">
-					You have no signed up for any events yet. Go to the map to explore volunteer opportunities!
+					You have not signed up for any events yet. Go to the map to explore volunteer opportunities!
 				</div>
 				<input type="radio" name="eventsTense" id="futureTense" class="tenseInput">
 				<input type="radio" name="eventsTense" id="everythingTense" class="tenseInput" checked>
