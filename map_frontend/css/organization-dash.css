@@ -36,7 +36,7 @@ header {
 	padding-top: 0px;
 	padding-bottom: 20px;
 	margin: 0px;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 	font-size: 20px;
 	line-height: 30px;
 }
@@ -96,7 +96,7 @@ header {
 	position: relative;
 	width: 100%;
 	border-bottom: 1px solid #C4C4C4;
-	padding-bottom: 20px;
+	padding-bottom: 10px;
 }
 
 .event h4 {
@@ -104,8 +104,13 @@ header {
 	min-height: 25px;
 }
 
+.event-name,
+.event-right,
+.event-desc {
+	width: 790px;
+}
+
 .event-name {
-	width: 100%;
 	line-height: 35px;
 	font-size: 17px;
 	overflow: hidden;
@@ -158,3 +163,23 @@ header {
 #futureTense:checked ~ .event-future { display: block; }
 #everythingTense:checked ~ .event {display: block;}
 #pastTense:checked ~ .event-past { display: block; }
+
+#edit-event {
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	cursor: pointer;
+	right: 15px;
+	top: -10px;
+	bottom: 0px;
+	margin: auto;
+	background-image: url("../imgs/editPencilB.png");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 20px;
+	opacity: 0.5;
+}
+
+#edit-event:hover {
+	opacity: 1;
+}

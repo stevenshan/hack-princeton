@@ -92,7 +92,8 @@ $(function(){
 				element = '<label class="event ' + optionalTag + '"> \
 					<div class="event-name">' + data["name"] + '<span>' +
 					formatDate(date) + '</span></div>' + optionalTimes +  
-					optionalDesc + '</label>';
+					optionalDesc + '<a href="edit_event.php?id=' + 
+					data["id"] + '"><div id="edit-event"></div></a></label>';
 
 				index = 0;
 				while (index < elements.length && date < elements[index][0])
