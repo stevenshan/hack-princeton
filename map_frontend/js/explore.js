@@ -1,4 +1,6 @@
 
+var current_event_id = -1;
+
 function initMap() {
 
   var princeton = {lat: 40.3474393, lng: -74.657609};
@@ -337,6 +339,9 @@ function initMap() {
 
 function updateSidebar(resp_temp) {
   $('#sidebar').removeClass('active');
+  let event_id = parseInt(resp_temp["id"]);
+  current_event_id = event_id;
+
   let name = resp_temp["name"];
   let org_id = resp_temp["organization"];
   var org_name;
@@ -388,17 +393,26 @@ function codeLatLng(lat, lng) {
 }
 
 $(document).ready(function () {
-    // when opening the sidebar
-    $('#sidebarCollapse').on('click', function () {
-        // open sidebar
-        $('#sidebar').toggleClass('active');
+  // when opening the sidebar
+  $('#sidebarCollapse').on('click', function () {
+      // open sidebar
+      $('#sidebar').toggleClass('active');
+  });
+
+  $("#signup-button").on('click', function () {
+    if (current_event_id < 0) return;
+    $.ajax({
+      async: false, 
+      url: "http://10.25.53.76/scripts/sign_up.php?id=" + current_event_id,
+      success: function(response) {
+        
+      }
     });
+  })
+
 
 });
 
-function signUp(event_id){
-  $("")
-}
 
 
 
