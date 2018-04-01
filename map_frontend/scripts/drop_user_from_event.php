@@ -3,11 +3,11 @@
 
 	// print data object of currently logged in user
 	// prints "-1" if not logged in
-  include("session.php");
+	include("session.php");
 
 	if (!isset($_GET["id"]) || $_GET["id"] == "") {
 		echo "-1";
-  } else {
+	} else {
 		include("config.php");
 
 		$id = mysqli_real_escape_string($db, $_GET["id"]);
@@ -19,22 +19,45 @@
 
 		$count = mysqli_num_rows($result);
 
-		if($count != 1) {
+		if($count != 1) 
+		{
 			echo "-1";
-    } else {
-			$user_list = explode($row["users"], ",");
+		} 
+		else 
+		{
+			$user_list = explode(",", $row["users"]);
 
-      $new_user_list = array();
-      foreach ($user_list as $user) {
-        if ($user != $uid) {
-          array_push($new_user_list, $user);
-        }
-      }
+			$new_user_list = array();
+			foreach ($user_list as $user) {
+				if ($user != $uid) {
+					array_push($new_user_list, $user);
+				}
+			}
 
-      $new_users = implode(",", $new_user_list);
+			$new_users = implode(",", $new_user_list);
 
-      $sql_update = "UPDATE Events SET users=$new_users WHERE id='$id'";
-  		$result = mysqli_query($db, $sql_update);
+			$sql_update = "UPDATE Events SET users='$new_users' WHERE id='$id'";
+			$result = mysqli_query($db, $sql_update);
+
+
+			$sql = "SELECT events FROM `Users` WHERE id='$uid'";
+			$result = mysqli_query($db, $sql);
+			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+
+			$user_list = explode(",", $row["events"]);
+
+			$new_user_list = array();
+			foreach ($user_list as $user) {
+				if ($user != $id) {
+					array_push($new_user_list, $user);
+				}
+			}
+
+			$new_users = implode(",", $new_user_list);
+
+			$sql_update = "UPDATE `Users` SET events='$new_users' WHERE id='$uid'";
+			$result = mysqli_query($db, $sql_update);
 		}
 	}
 
