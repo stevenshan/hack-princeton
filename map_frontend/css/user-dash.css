@@ -101,3 +101,9 @@
 	background-image: url("../imgs/reject.png");
 	right: 0px;
 }
+
+.ldBar {
+	margin: 0 auto;
+	text-align: center;
+	font-size: 14px;
+}
