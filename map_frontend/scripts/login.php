@@ -5,6 +5,7 @@
     // $error to a string otherwise
 
     include("config.php");
+
     session_start();
     $error="";
     $success=false;

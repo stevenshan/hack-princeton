@@ -12,9 +12,10 @@
 	    $myname=mysqli_real_escape_string($db,$_POST['name']);
 	    $mypassword=mysqli_real_escape_string($db,$_POST['password']); 
 	    $myemail=mysqli_real_escape_string($db,$_POST['email']); 
+	    $thumbnail=rand(0,9);
 
-		$sql="INSERT INTO `Users`(`name`, `password`, `email`) " .
-			 "VALUES ('$myname', '$mypassword', '$myemail')";
+		$sql="INSERT INTO `Users`(`name`, `password`, `email`, `thumbnail`) " .
+			 "VALUES ('$myname', '$mypassword', '$myemail', '$thumbnail')";
 	    $result=mysqli_query($db,$sql);
 
 	    if ($result === false)
