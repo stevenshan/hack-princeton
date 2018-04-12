@@ -9,6 +9,16 @@
 	echo $row["id"];
 	while($row=mysqli_fetch_array($result,MYSQLI_ASSOC))
 	{
+		foreach ($row as $key => $value) {
+		    if (is_null($value)) {
+			 $row[$key] = "";
+		    }
+		}
+		foreach ($row as $key => $value) {
+		    if (is_null($value)) {
+			 $row[$key] = "";
+		    }
+		}
 		echo ",".$row["id"];
 	}
 ?>

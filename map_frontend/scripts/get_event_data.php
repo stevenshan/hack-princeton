@@ -26,6 +26,11 @@
 		}
 		else
 		{
+			foreach ($row as $key => $value) {
+			    if (is_null($value)) {
+				 $row[$key] = "";
+			    }
+			}
 			echo json_encode($row);
 		}
 	}
@@ -48,6 +53,11 @@
 		}
 		else
 		{
+			foreach ($row as $key => $value) {
+			    if (is_null($value)) {
+				 $row[$key] = "";
+			    }
+			}
 			echo $row[$param];
 		}
 	}
