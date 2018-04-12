@@ -3,7 +3,7 @@
   include("scripts/session.php");
 
   if (!$success)
-    header('Location: /home.php');
+    header('Location: home.php');
 
 ?>
 
@@ -12,15 +12,15 @@
 
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="./css/bootstrap.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <!-- <link rel="stylesheet" href="./css/navbar-fixed-right.css"> -->
-  <link rel="stylesheet" href="./css/navbar.css">
-  <link rel="stylesheet" href="./css/styles.css">
+  <!-- <link rel="stylesheet" href="css/navbar-fixed-right.css"> -->
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/styles.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="./js/jquery.cookie.js"></script>
-  <script src="./js/user.js"></script>
+  <script src="js/jquery.cookie.js"></script>
+  <script src="js/user.js"></script>
   <title>Explore</title>
 </head>
 
@@ -31,7 +31,7 @@
     <nav id="sidebar">
       <div id="dismiss">
         <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
-          <img src="./imgs/menu.png" width="40px">
+          <img src="imgs/menu.png" width="40px">
         </button>
       </div>
 
@@ -39,9 +39,9 @@
       <div id="sidebar-content" class="sidebar-content">
       <div class="sidebar-header">
         <div id="welcome" class="nav navbar-nav pull-right">
-          <a href="./dashboard.php" class="navbar-brand welcome-name">Welcome, <script>document.write(name);</script></a>
+          <a href="dashboard.php" class="navbar-brand welcome-name">Welcome, <script>document.write(name);</script></a>
           <p class="navbar-brand welcome-name">&nbsp;&nbsp; | &nbsp;&nbsp;</p>
-          <a class="navbar-brand welcome-name" href="./logout.php"><img src="./imgs/exit_black.png" width="22px" alt="logout" style="opacity: 0.4"></a>
+          <a class="navbar-brand welcome-name" href="logout.php"><img src="imgs/exit_black.png" width="22px" alt="logout" style="opacity: 0.4"></a>
         </div>
       </div>
 
@@ -148,7 +148,7 @@
       <div id="map"></div>
     </div>
 
-    <script type="text/javascript" src="./js/explore.js"></script>
+    <script type="text/javascript" src="js/explore.js"></script>
     <!-- API key: AIzaSyA4oufZ_wBBWQlZzWrNQ5SeQ2HmSvsuKbo -->
     <!-- &callback= -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4oufZ_wBBWQlZzWrNQ5SeQ2HmSvsuKbo&libraries=places&callback=initMap"></script>

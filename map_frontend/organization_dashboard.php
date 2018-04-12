@@ -2,7 +2,7 @@
   include("scripts/organization_session.php");
   if (!$success)
   {
-    header("location:/login_organization.php");
+    header("location:login_organization.php");
   }
 
   include("scripts/config.php");

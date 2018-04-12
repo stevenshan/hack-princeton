@@ -2,7 +2,7 @@
   include("scripts/session.php");
   if (!$success)
   {
-    header("location:/login.php");
+    header("location:login.php");
   }
 
   include("scripts/config.php");

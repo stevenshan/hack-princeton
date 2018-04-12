@@ -5,7 +5,7 @@
 	include("session.php");
 	if (!$success)
 	{
-		header("Location: /login.php");
+		header("Location: login.php");
 	}
 
 	if (!isset($_GET["id"]))

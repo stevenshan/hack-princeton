@@ -2,12 +2,12 @@
   include("scripts/organization_session.php");
   if ($success)
   {
-    header("location:/organization_dashboard.php");
+    header("location:organization_dashboard.php");
   }
   include("scripts/create_org.php");
   if ($success)
   {
-    header("location:/organization_dashboard.php");
+    header("location:organization_dashboard.php");
   }
 ?>
 

@@ -2,12 +2,12 @@
   include("scripts/organization_session.php");
   if (!$success)
   {
-    header("location:/login_organization.php");
+    header("location:login_organization.php");
   }
   include("scripts/edit_event.php");
   if ($success || !isset($_GET["id"]))
   {
-    header("location:/organization_dashboard.php");
+    header("location:organization_dashboard.php");
   }
   else
   {

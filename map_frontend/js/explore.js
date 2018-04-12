@@ -165,7 +165,7 @@ function initMap() {
   var icons = {
     ANI: {
       icon: {
-        url: './imgs/015-animals.png',
+        url: 'imgs/015-animals.png',
         size: new google.maps.Size(71,71),
         origin: new google.maps.Point(0,0),
         anchor: new google.maps.Point(17,34),
@@ -174,7 +174,7 @@ function initMap() {
     },
     ENV: {
       icon: {
-        url: './imgs/013-plant.png',
+        url: 'imgs/013-plant.png',
         size: new google.maps.Size(71,71),
         origin: new google.maps.Point(0,0),
         anchor: new google.maps.Point(17,34),
@@ -183,7 +183,7 @@ function initMap() {
     },
     EDU: {
       icon: {
-        url: './imgs/007-books.png',
+        url: 'imgs/007-books.png',
         size: new google.maps.Size(71,71),
         origin: new google.maps.Point(0,0),
         anchor: new google.maps.Point(17,34),
@@ -192,7 +192,7 @@ function initMap() {
     },
     CPU: {
       icon: {
-        url: './imgs/009-imac.png',
+        url: 'imgs/009-imac.png',
         size: new google.maps.Size(71,71),
         origin: new google.maps.Point(0,0),
         anchor: new google.maps.Point(17,34),
@@ -201,7 +201,7 @@ function initMap() {
     },
     MED: {
       icon: {
-        url: './imgs/012-medical.png',
+        url: 'imgs/012-medical.png',
         size: new google.maps.Size(71,71),
         origin: new google.maps.Point(0,0),
         anchor: new google.maps.Point(17,34),
@@ -210,7 +210,7 @@ function initMap() {
     },
     HOM: {
       icon: {
-        url: './imgs/006-real-estate.png',
+        url: 'imgs/006-real-estate.png',
         size: new google.maps.Size(71,71),
         origin: new google.maps.Point(0,0),
         anchor: new google.maps.Point(17,34),
@@ -219,7 +219,7 @@ function initMap() {
     },
     CHD: {
       icon: {
-        url: './imgs/003-teddy-bear.png',
+        url: 'imgs/003-teddy-bear.png',
         size: new google.maps.Size(71,71),
         origin: new google.maps.Point(0,0),
         anchor: new google.maps.Point(17,34),
@@ -291,7 +291,7 @@ function initMap() {
 
   $.ajax({
     async: false,
-    url: "/scripts/get_all_events.php",
+    url: "scripts/get_all_events.php",
     success: function(data) {
       event_ids = data.split(",");
     },
@@ -307,7 +307,7 @@ function initMap() {
       var data_temp;
       $.ajax({
         async: false,
-        url: "/scripts/get_event_data.php?id=" + event_id,
+        url: "scripts/get_event_data.php?id=" + event_id,
         success: function(resp) {
           resp_temp = JSON.parse(resp);
           console.log(resp_temp["data"]);
@@ -341,7 +341,7 @@ function updateSidebar(event_id) {
 
   $.ajax({
     async: false,
-    url: "/scripts/get_event_data.php?id=" + event_id,
+    url: "scripts/get_event_data.php?id=" + event_id,
     success: function(resp) {
       updated_resp_temp = JSON.parse(resp);
     }
@@ -356,7 +356,7 @@ function updateSidebar(event_id) {
   var org_name;
   $.ajax({
     async: false,
-    url: "/scripts/get_org_data.php?id=" + org_id,
+    url: "scripts/get_org_data.php?id=" + org_id,
     success: function(response) {
       org_info = JSON.parse(response);
       org_name = org_info["name"];
@@ -382,9 +382,9 @@ function updateSidebar(event_id) {
     if (friends.indexOf(attendee) > -1) {
       $.ajax({
         async: false,
-        url: "/scripts/get_user_data.php?id=" + attendee + "&param=thumbnail",
+        url: "scripts/get_user_data.php?id=" + attendee + "&param=thumbnail",
         success: function(response) {
-          let propic = "./imgs/user" + response + ".png";
+          let propic = "imgs/user" + response + ".png";
           console.log(propic);
           $("#event-friends").append(
             "<img src='" + propic + "' width='40px' style='margin: 3px'>"
@@ -441,7 +441,7 @@ $(document).ready(function () {
 
     $.ajax({
       async: false,
-      url: "/scripts/signup.php?id=" + current_event_id,
+      url: "scripts/signup.php?id=" + current_event_id,
       success: function(response) {
         alreadySignedUp();
       }

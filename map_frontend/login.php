@@ -2,12 +2,12 @@
   include("scripts/session.php");
   if ($success)
   {
-    header("location:/");
+    header("location:index.php");
   }
   include("scripts/login.php");
   if ($success)
   {
-    header("location:/");
+    header("location:index.php");
   }
 ?>
 
